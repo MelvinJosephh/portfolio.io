@@ -5,7 +5,7 @@ const Skill = () => {
     const Progress = ({done, title})=> {
         return (
             <div className="progress">
-                <div className="progress-done" style={{opacity: 1, width: "${done}%" }}>
+                <div className="progress-done" style={{opacity: 1, width: `${done}%` }}>
                     <h4>{title}</h4>
                     <h4>{done} %</h4>
                 </div>
