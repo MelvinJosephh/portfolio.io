@@ -709,13 +709,17 @@ footer li {
   color: #fff;
   margin-bottom: 15px;
 }
-footer li::before{
+footer li:before {
   content:'.';
   font-size: 50px;
   vertical-align: top;
   line-height: 10px;
   margin-right: 20px;
   color: #38d16a;
+}
+footer .box p {
+  margin: 0;
+  margin-top: 15px;
 }
 footer span {
   color: #38d16a;
