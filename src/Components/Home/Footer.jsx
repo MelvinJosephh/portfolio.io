@@ -47,7 +47,7 @@ const Footer = () => {
                         <h2>Get in Touch</h2>
                 
                         <div className="icon">
-                            <i className="fa fa-Location-dot"></i>
+                            <i className="fa fa-location-dot"></i>
                             <label htmlFor='/'>Location: 87 Division, Kikuyu Sub, Kiambu County, Nairobi, Kenya</label>
                         </div>
                         <div className="icon">
