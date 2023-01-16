@@ -15,8 +15,8 @@ const Skill = () => {
 const data = [
     {
         title: "Supporting Innovative dreams in Tech",
-        para: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, incididunt ut labore et dolore magna aliqua",
-        para1: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, incididunt ut labore et dolore magna aliqua",
+        para: "My dream is to support innovative dreams through making ideas come true.",
+        para1: "I am committed to offering state-of-the-art innovations that not only offer solutions but also support creative minds.",
     },
 ]
 

@@ -5,7 +5,7 @@ const Wrapper = () => {
         {
             title: "LOOKING FOR EXCLUSIVE SERVICES?",
             heading: "Get The Best For Your Business",
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, incididunt ut labore et dolore magna aliqua"
+            desc: "Get familiar with modern developments as soon as the touch the market. I will upgrade your system and perform efficient maintenance for better customer experience."
         },
     ]
   return (

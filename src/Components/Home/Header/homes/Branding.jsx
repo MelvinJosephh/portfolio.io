@@ -6,17 +6,17 @@ const Branding = () => {
   {
       id: "01",
     heading: "Digital Branding",
-    desc: "Lorem ipsum dolor sit amet,consectetur adipiscing elitsed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    desc: "I intend to continue offering up-to-date solutions using the best technologies in the market. Every day is an opportunity to offer consistent, innovative, timeless, and strategic marketing designs with a combination of developed digital technologies and skills.",
   },
   {
     id: "02",
   heading: "Team Management",
-  desc: "Lorem ipsum dolor sit amet,consectetur adipiscing elitsed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  desc: "I value teamwork and work best when around innovative minds. With teamwork comes improved team efficiency, better code quality, and accountability.",
 },
 {
   id: "03",
 heading: "Creative mind",
-desc: "Lorem ipsum dolor sit amet,consectetur adipiscing elitsed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+desc: "Creativity at its best provides an atmosphere that is idea for problem-solving, collaboration and innovation. Given an opportunity, I embrace stronger cohesion, morale, enthusiasm and passion.",
 }
   ]
   return (

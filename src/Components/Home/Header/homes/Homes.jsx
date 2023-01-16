@@ -14,8 +14,8 @@ const Homes = () => {
             </div>
             <div className="right topMargin">
               <h1>
-                I AM A <br/>
-                WEB DESIGNER
+                Hey! I'm Melvin <br/>
+                I Solve Problems.
               </h1>
               <div className="socialIcon">
                 <i className='fab fa-facebook-f facebook'></i>
@@ -25,13 +25,11 @@ const Homes = () => {
                 <i className='fab fa-pinterest pinterest'></i>
                 <i className='fab fa-dribbble dribbble'></i>
               </div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                 fugiat nulla pariatur.</p>
+              <p>I am a creative designer with a can-do attitude, motivated to offer solutions 
+                and integrate tech knowledge to solve problems. I value active communication, and collaboration
+                 is everything. Would you like to build value with me through Dev?</p>
                 
-            <button className="primary-btn">Contact US</button>
+            <button className="primary-btn">Contact Me</button>
        </div>
         </div>
       </section>

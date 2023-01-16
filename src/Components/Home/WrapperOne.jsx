@@ -3,7 +3,7 @@ import React from 'react'
 const WrapperOne = () => {
     const data = [
         {
-            num: "640%",
+            num: "64%",
             text: "AWARDS WINNING",
         },
         {
@@ -11,11 +11,11 @@ const WrapperOne = () => {
             text: "SATISFIED CLIENTS",
         },
         {
-            num: "3500",
+            num: "35",
             text: "CREATIVE PROJECTS",
         },
         {
-            num: "5500",
+            num: "500",
             text: "LINES OF CODE",
         },
     ]

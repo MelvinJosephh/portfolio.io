@@ -4,9 +4,9 @@ const About = () => {
   const data = [
     {
         title: "Who I am and What I Do",
-        desc1: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        desc2: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        desc3: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        desc1: "I am well versed in front-end and back-end web development and fitted to customer needs, intentions, and motivations.",
+        desc2: "I intend to continue offering up-to-date solutions using the best technologies in the market.",
+        desc3: "Every day is an opportunity to offer consistent, innovative, timeless, and strategic marketing designs with a combination of developed digital technologies and skills.",
         cover: "./images/profile2.jpg",
     }
 ]
