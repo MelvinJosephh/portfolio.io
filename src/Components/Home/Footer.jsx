@@ -41,13 +41,13 @@ const Footer = () => {
                         <p>Why BillGates Visits Kenya</p>
                         <span>28 Feb 2022</span>
                     </div>
-                    </div>
+                    </div>       
                 </div>
                     <div className="box">
                         <h2>Get in Touch</h2>
                 
                         <div className="icon">
-                            <i className="fa fa-location-dot"></i>
+                            <i className="fa-solid fa-location-dot"></i>
                             <label htmlFor='/'>Location: 87 Division, Kikuyu Sub, Kiambu County, Nairobi, Kenya</label>
                         </div>
                         <div className="icon">
