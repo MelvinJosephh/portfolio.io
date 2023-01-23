@@ -239,42 +239,11 @@ p {
   color: #fff;
   opacity: 0.7;
 }
-@media screen and (max-width: 768px){
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
-    }
-  .branding{
-    background-color: #08071c;
-    color: #fff;
-    margin-top: 35px;
-    padding: 40px 0;
-  }
-  .branding h1 {
-    font-size: 20px;
-    color: #38d16a;
-    margin-right: 20px;
-  }
-  .branding h2 {
-    font-weight: 500;
-    font-size: 15px;
-    margin: 10px 0 20px 0;
-  }
-  .branding p {
-    color: #fff;
-    opacity: 0.7;
-    font-size:small;
-  }
-
-}
 /* ------------End of branding---------- */
 /* -------------about section styling--------- */
-
 .mtop {
   margin-top: 50px;
 }
-
 h3 {
   font-size: 15px;
   font-weight: 500;
@@ -286,32 +255,28 @@ h3 {
   font-size: 30px;
   margin-bottom: 30px;
 }
-
 .about p{
   margin-bottom: 20px;
 }
-
 .about .left {
   padding-right: 30px;
 }
-
 .about .img {
-top: 0;
-left: 0;
-height: 0;
-width: 100%;
-transform: scale(0.1);
+position: relative;
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 50%;
 }
-
 .about .img::after {
   content:'';
   position: absolute;
   top: 0;
   left: -50px;
-  right: auto;
+  right: 0;
   background-color: #000;
-  width: 100%;
-  height: 100%;
+  width: 600px;
+  height: 86vh;
   z-index: -1;
 }
 /* ------------end of about styling section---------- */
@@ -320,6 +285,9 @@ transform: scale(0.1);
   text-align: center;
   background-color: #f8f9fe;
   padding: 50px 0;
+}
+.services .box {
+text-align: left;
 }
 .services img {
   width: 100%;
@@ -340,6 +308,7 @@ z-index: 1;
   font-size: 22px;
   margin-bottom: 20px;
 }
+
 /* ----------Services section end----------- */
 /* --------Wrapper styling-------- */
 .wrapper .container {
@@ -421,7 +390,7 @@ color: #7f9cb5;
   margin: 10px 0;
 }
 /* ----------WrapperOne--------- */
-/* ---------Works styling section----- */
+/* ---------Works styling section----- 
 .work {
   background-color: #08071c;
   padding: 40px 0;
@@ -542,7 +511,12 @@ left: 160px;
 .iconWork:nth-child(2){
   right: 160px;
 }
-/* ---------Works styling section----- */
+/* ---------Works styling section----- */ */
+
+
+
+
+
 /* -------blogs--------- */
 .blog .heading {
   text-align: center;
@@ -565,20 +539,17 @@ left: 160px;
 .blog a .icon {
   padding-top: 10px;
 }
-
 /* ---------blogs-------- */
 /* ----------footer styling---------- */
 footer {
-  background: #08071c;
+  background-color: #08071c;
   padding: 100px 0 0 0;
   color: #fff;
 }
-
 footer p {
   color: #fff;
   margin: 20px 0;
 }
-
 footer .socialIcon i {
   background: transparent;
   border: 1px solid #fff;

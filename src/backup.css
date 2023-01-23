@@ -1,0 +1,155 @@
+
+/* Extracted between Home and branding section from the App.css */
+@media screen and (max-width: 768px) {
+    .left, .right {
+      width: 50%;
+      position: relative;
+    }
+    .flex {
+    display: flex;
+    }
+    .topMargin {
+      margin-top: 20px;
+    }
+    .home {
+      height: 110vh;
+    }
+    .home .img {
+      height: 90vh;
+      top: 20px;
+      width: 100%;
+      position: relative;
+    }
+    .home img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 80vh;
+    width: 100%;
+    object-fit: contain;
+    transform: scale(1.1);
+    }
+    .home h1 {
+      font-size: 30px;
+    }
+    .socialIcon i{
+      width: 25px;
+      height: 25px;
+      text-align: center;
+      line-height: 25px;
+      margin-right: 5px;
+      border-radius: 50%;
+      transition: 0.5s;
+      cursor: pointer;
+    }
+    .socialIcon i:hover {
+      color: #fff;
+    }
+    .facebook{
+      color: #4267b2;
+      border: 1px solid #4267b2;
+    }
+    .facebook:hover {
+    background-color: #4267b2;
+    }
+    .instagram {
+      color: #4267b2;
+      border: 1px solid #4267b2;
+    }
+    .instagram:hover {
+    background-color: #4267b2;
+    }
+    .twitter{
+      color: #00acee;
+      border: 1px solid #00acee;
+    }
+    .twitter:hover {
+    background-color: #00acee;
+    }
+    .youtube{
+      color: #c4302b;
+      border: 1px solid #c4302b;
+    }
+    .youtube:hover {
+    background-color: #c4302b;
+    }
+    .pinterest{
+      color: #c8232c;
+      border: 1px solid #c8232c;
+    }
+    .pinterest:hover {
+    background-color: #c8232c;
+    }
+    .dribbble{
+      color: #ee72a2;
+      border: 1px solid #ee72a2;
+    }
+    .dribble:hover {
+    background-color: #ee72a2;
+    }
+    button {
+      background: none;
+      outline: none;
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: 15px;
+      transition: 0.5s;
+      cursor: pointer;
+    }
+    .primary-btn {
+    padding: 15px 40px;
+    background-color: #38d16a;
+    }
+    .primary-btn:hover {
+    background: #f54ea2;
+    box-shadow: 0 13px 27px 0 rgb(245 78 162 / 25%);
+    }
+    .home .right {
+      margin-top: 15%;
+    }
+    .home .socialIcon {
+      margin: 20px 0;
+    }
+    .home p {
+      margin-bottom: 20px;
+    }
+    p {
+      color: #6185a5;
+      line-height: 30px;
+    }
+  }
+
+
+
+/* From the branding section */
+
+  @media screen and (max-width: 768px){
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+      }
+    .branding{
+      background-color: #08071c;
+      color: #fff;
+      margin-top: 35px;
+      padding: 40px 0;
+    }
+    .branding h1 {
+      font-size: 20px;
+      color: #38d16a;
+      margin-right: 20px;
+    }
+    .branding h2 {
+      font-weight: 500;
+      font-size: 15px;
+      margin: 10px 0 20px 0;
+    }
+    .branding p {
+      color: #fff;
+      opacity: 0.7;
+      font-size:small;
+    }
+  
+  }
