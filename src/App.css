@@ -743,6 +743,7 @@ footer .icon i {
   padding: 20px 0;
 }
 /* ---------End of footer styling-------- */
+/*  
 
 @media screen and (max-width: 768px){
 .left, .right {
@@ -842,5 +843,4 @@ grid-template-columns: repeat (1, 1fr);
 } */
 footer grid1 {
   grid-template-columns: repeat(2 , 1fr);
-}
 }
