@@ -53,7 +53,7 @@ position: sticky;
 top: 0;
 left: 0;
 background-color: #fff;
-box-shadow: 0 2px 28px 0 rgba(0 0 0 /6%);
+box-shadow: 0 2px 28px 0 rgba(0 0 0, 6%);
 width: 100%;
 z-index: 10;
 }
@@ -197,7 +197,7 @@ background-color: #38d16a;
 }
 .primary-btn:hover {
 background: #f54ea2;
-box-shadow: 0 13px 27px 0 rgb(245 78 162 / 25%);
+box-shadow: 0 13px 27px 0 rgba(245 78 162, 25%);
 }
 .home .right {
   margin-top: 10%;
@@ -296,7 +296,7 @@ text-align: left;
 }
 .services .text {
 background-color: #fff;
-box-shadow: 0 5px 20px 0 rgba(0 0 0 /6%);
+box-shadow: 0 5px 20px 0 rgba(0 0 0, 6%);
 padding: 30px;
 margin: 20px;
 margin-top: -30px;
@@ -511,7 +511,7 @@ left: 160px;
 .iconWork:nth-child(2){
   right: 160px;
 }
-/* ---------Works styling section----- */ */
+/* ---------Works styling section----- */ 
 
 
 
