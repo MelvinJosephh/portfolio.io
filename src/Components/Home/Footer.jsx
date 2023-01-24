@@ -6,7 +6,6 @@ const Footer = () => {
       <footer>
         <div className="container grid1">
                 <div className="box">
-                    <img src="./assets/logo.png" alt=''/>
                     <p>Connect with me and Get the best for your firm</p>
                     <div className="socialIcon">
                     <i className='fab fa-facebook-f '></i>
@@ -60,12 +59,12 @@ const Footer = () => {
                         </div>
                     </div>  
        </div>
-       <div className="legal container">
-                    <p>Copyright @2023. All rights reserved.</p>
-                    <label htmlFor=''>
-                        Design and Developed by <span>MelvinDev</span>
-                    </label>
-                </div>
+                    <div className="legal container">
+                                    <p>Copyright @2023. All rights reserved.</p>
+                                    <label htmlFor=''>
+                                        Design and Developed by <span>MelvinDev</span>
+                                    </label>
+                        </div>
       </footer>
     </>
   )
