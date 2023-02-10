@@ -25,11 +25,10 @@ header.classList.toggle("active", window.scrollY > 200)
               <div className="nav">
                 <ul className={sidebar ? "nav-links-sidebar" : "nav-links"} onClick={()=>setSidebar(false)}>
                   <li><Link to='/'>Home</Link></li>
-                  <li><Link to='/pages'>Pages</Link></li>
-                  <li><Link to='/blogs'>Blogs</Link></li>
-                  <li><Link to='/portfolio'>Portfolio</Link></li>
-                  <li><Link to='/shop'>Shop</Link></li>
-                  <li><Link to='/contact'>Contact</Link></li>
+                  <li><Link to='/blogs'>Latest Blogs</Link></li>
+                  <li><Link to='/about'>About Me</Link></li>
+                  <li><Link to='/services'>My Services</Link></li>
+                  <li><Link to='/contacts'>Contact</Link></li>
                   <li className="icon">
                     <SearchOutlinedIcon className="HeaderIcon"/>
                     <WorkIcon className="HeaderIcon"/>

@@ -3,7 +3,7 @@ import ServicesData from "../Services/ServicesData"
 const Services = () => {
   return (
     <>
-      <section className="services topMargin">
+      <section className="services topMargin" id="Services">
         <div className="container">
             <div className="heading">
                 <h3>MY SERVICES</h3>

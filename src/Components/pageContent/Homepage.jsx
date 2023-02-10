@@ -6,7 +6,7 @@ import Services from "../Services/Services"
 import Wrapper from "../Home/Wrapper"
 import Skill from "../Services/Skill"
 import WrapperOne from '../Home/WrapperOne'
-// import Works from "../Works/Works"
+import Forms from "../Registration/validation"
 import Blogs from "../Blogs/Blogs"
 
 const Homepage = () => {
@@ -19,9 +19,8 @@ const Homepage = () => {
       <Wrapper/>
       <Skill/>
       <WrapperOne/>
-      {/* <Works/> */}
       <Blogs/>
-    
+      <Forms/>
     </>
   )
 }

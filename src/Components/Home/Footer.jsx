@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <>
       <footer>
-        <div className="container grid1">
+        <div className="container grid1" id="footer">
                 <div className="box">
                     <p>Connect with me and Get the best for your firm</p>
                     <div className="socialIcon">
