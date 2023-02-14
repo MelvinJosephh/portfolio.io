@@ -5,7 +5,7 @@ function Forms() {
   const [errors, setErrors] = useState({});
   useEffect(() => {
     if (formData.name.length < 3) {
-      setErrors(prevErrors => ({ ...prevErrors, name: 'Name must be at least 3 characters' }));
+      setErrors(prevErrors => ({ ...prevErrors, name: 'Name should be at least three characters' }));
     } else {
       setErrors(prevErrors => ({ ...prevErrors, name: null }));
     }
