@@ -19,13 +19,13 @@ const About = () => {
             <React.Fragment key={index}>
               <div className="left mtop">
                 <div className="heading">
-                  <h3>About Me</h3>
+                  <h3>About Us</h3>
                   <h1>{val.title}</h1>
                 </div>
                 <p>{val.desc1}</p>
                 <p>{val.desc2}</p>
                 <p>{val.desc3}</p>
-                <button className="primary-btn">Contact me</button>
+                <button className="primary-btn">Contact Us</button>
               </div>
               <div className="right">
                 <div className="icon">
