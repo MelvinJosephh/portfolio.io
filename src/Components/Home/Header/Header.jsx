@@ -28,17 +28,18 @@ const Header = () => {
           {/* Navigation */}
           <div className="nav">
             <ul className={sidebar ? "nav-links-sidebar active" : "nav-links"} onClick={() => setSidebar(false)}>
-              <li><Link to='/'>Home</Link></li>
-              <li><Link to='/blogs'>Latest Blogs</Link></li>
-              <li><Link to='/services'>Our Services</Link></li>
+              <li><Link to='/about'>About Us</Link></li>
+              <li><Link to='/industries'>Industries</Link></li>
+              <li><Link to='/services'>Services</Link></li>
+              <li><Link to='/hire-talent'>Hire Talent</Link></li>
+              <li><Link to='/portfolio'>Portfolio</Link></li>
               <li><Link to='/contact'>Contact Us</Link></li>
+              
 
               {/* Icon Links */}
               <li className="icon">
-                <Link to="/about">
-                  <WorkIcon className="HeaderIcon" />
-                </Link>
-                <GridViewIcon className="HeaderIcon" />
+              <li><Link to='/hire-developers'>Hire Developers</Link></li>
+  
               </li>
             </ul>
           </div>
