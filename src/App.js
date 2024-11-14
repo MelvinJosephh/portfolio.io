@@ -6,11 +6,11 @@ import Blogs from './Components/Blogs/Blogs';
 import About from './Components/Home/About/About';
 import Services from './Components/Services/Services';
 import Footer from "./Components/Home/Footer";
-import Forms from "./Components/Contact/contactUs.jsx"
-import Developers from './Components/Hire-Developers/Hire-Developers.js';
-import Talent from './Components/Hire-Talent/Hire-Talent.js';
-import Industries from './Components/Industries/Industries.js';
-import Portfolio from './Components/Portfolio/Portfolio.js';
+import Forms from "./Components/Contact/contactUs"
+import Developers from './Components/Hire-Developers/Hire-Developers';
+import Talent from './Components/Hire-Talent/Hire-Talent';
+import Industries from './Components/Industries/Industries';
+import Portfolio from './Components/Portfolio/Portfolio';
 
 function App() {
   return (
