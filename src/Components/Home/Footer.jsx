@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="container grid1" id="footer">
                 <div className="box">
                     <p>Connect with me and Get the best for your firm</p>
-                    <div className="socialIcon">
+                    <div className="socialIcons">
                     <i className='fab fa-facebook-f '></i>
                     <i className='fab fa-instagram '></i>
                     <i className='fab fa-twitter '></i>
@@ -46,7 +46,7 @@ const Footer = () => {
                         <h2>Get in Touch</h2>
                 
                         <div className="icon">
-                            <i className="fa-solid fa-location-dot"></i>
+                        <i class="fa fa-map-marker"></i>
                             <label htmlFor='/'>Location: 87 Division, Kikuyu Sub, Kiambu County, Nairobi, Kenya</label>
                         </div>
                         <div className="icon">

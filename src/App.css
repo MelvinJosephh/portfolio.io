@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=PT+Serif:wght@400;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300&display=swap');
+
 *{
   padding: 0;
   margin: 0;
@@ -34,123 +35,6 @@ a {
   text-decoration: none;
   color:#000;
 }
-
-
-/* --------------Header------------ */
-header {
-  padding: 20px 0;
-}
-header ul {
-  display: inline-block;
-}
-header ul li {
-  display: inline-block;
-  margin-left: 30px;
-}
-header ul li a {
-  font-weight: 500;
-  transition: 0.5s;
-}
-header ul li a:hover {
-  color: #38d16a;
-  font-weight: 500;
-}
-.HeaderIcon {
-  margin-left: 20px;
-  transition: 0.5s;
-}
-.navbar-items-icon {
-  color: #000;
-  display: none;
-}
-header.active {
-  position: sticky;
-  top: 0;
-  left: 0;
-  background-color: #fff;
-  box-shadow: 0 2px 28px 0 rgba(0 0 0, 6%);
-  width: 100%;
-  z-index: 10;
-}
-
-.logo img {
-  max-width: 180px; /* Resize logo for better fit */
-  height: auto;
-  transition: max-width 0.3s ease-in-out;
-}
-
-@media screen and (max-width: 768px) {
-  .logo img {
-    max-width: 150px; /* Make logo smaller on smaller screens */
-  }
-
-  /* Hide the horizontal nav links and only show the sidebar */
-  .nav-links {
-    display: none;
-  }
-
-  .nav-links-sidebar {
-    position: fixed;
-    left: -200px; /* Hidden by default */
-    top: 0;
-    width: 250px; /* Wider for better navigation space */
-    height: 100vh;
-    background-color: #fff;
-    transition: left 0.3s ease;
-    z-index: 100; /* Above other content */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  }
-
-  .nav-links-sidebar.active {
-    left: 0; /* Show sidebar when active */
-  }
-
-  /* Sidebar links styling */
-  .nav-links-sidebar ul {
-    display: flex;
-    flex-direction: column;
-    padding: 20px; /* Add padding to space out the links */
-    list-style-type: none; /* Remove default list styling */
-    margin: 0;
-  }
-
-  .nav-links-sidebar li {
-    margin: 15px 0; /* Space between each link */
-  }
-
-  .nav-links-sidebar li a {
-    font-size: 18px; /* Slightly larger font size */
-    font-weight: bold;
-    text-decoration: none; /* Remove underlines */
-    color: #333; /* Dark text color */
-    transition: 0.3s;
-  }
-
-  .nav-links-sidebar li a:hover {
-    color: #38d16a; /* Highlight color on hover */
-    font-weight: 600;
-  }
-
-  /* Hide icons in mobile */
-  .nav-links-sidebar li.icon {
-    display: none;
-  }
-
-  /* Adjust the toggle button (hamburger) appearance */
-  .navbar-items-icon {
-    display: block;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    color: #000;
-    border: none;
-    background: none;
-    font-size: 28px;
-  }
-}
-
-
-
 
 
 
