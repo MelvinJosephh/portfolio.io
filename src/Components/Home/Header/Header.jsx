@@ -39,7 +39,9 @@ const Header = () => {
     <header className="header">
       <div className="container flex">
         <div className="logo">
-          <img src={aberrange} alt="Aberrange Logo" />
+        <Link to="/">
+            <img src={aberrange} alt="Aberrange Logo" />
+          </Link>
         </div>
 
         <div className={sidebar ? "nav-links-sidebar active" : "nav-links-sidebar"}>
@@ -74,45 +76,6 @@ const Header = () => {
                         {industriesData.button.label}
                       </Link>
                     </button>
-                  </div>
-                </div>
-              )}
-            </li>
-            <li>
-              <button
-                className="dropdown-button"
-                onClick={() => toggleDropdown("hire")}
-              >
-                Hire Talent
-              </button>
-              {dropdownState.hire && (
-                <div className="dropdown">
-                  <div className="column">
-                    {Object.keys(data).map((area) => (
-                      <p
-                        key={area}
-                        className={selectedArea === area ? "active" : ""}
-                        onClick={() => setSelectedArea(area)}
-                      >
-                        {area}
-                      </p>
-                    ))}
-                  </div>
-                  <div className="column">
-                    {data[selectedArea]?.map((dev) => (
-                      <p
-                        key={dev}
-                        onClick={() => setSelectedDeveloper(dev)}
-                        className={selectedDeveloper === dev ? "active" : ""}
-                      >
-                        {dev}
-                      </p>
-                    ))}
-                  </div>
-                  <div className="column">
-                    <h3>{selectedDeveloper || selectedArea} Developer</h3>
-                    <p>{descriptions[selectedArea]}</p>
-                    <button>Hire {selectedDeveloper || selectedArea} Developer</button>
                   </div>
                 </div>
               )}
@@ -159,7 +122,43 @@ const Header = () => {
               <Link to="/contact">Contact Us</Link>
             </li>
             <li>
-              <Link to="/hire-developers">Hire Developers</Link>
+              <button
+                className="dropdown-button"
+                onClick={() => toggleDropdown("hire")}
+              >
+                Hire Talent
+              </button>
+              {dropdownState.hire && (
+                <div className="dropdown">
+                  <div className="column">
+                    {Object.keys(data).map((area) => (
+                      <p
+                        key={area}
+                        className={selectedArea === area ? "active" : ""}
+                        onClick={() => setSelectedArea(area)}
+                      >
+                        {area}
+                      </p>
+                    ))}
+                  </div>
+                  <div className="column">
+                    {data[selectedArea]?.map((dev) => (
+                      <p
+                        key={dev}
+                        onClick={() => setSelectedDeveloper(dev)}
+                        className={selectedDeveloper === dev ? "active" : ""}
+                      >
+                        {dev}
+                      </p>
+                    ))}
+                  </div>
+                  <div className="column">
+                    <h3>{selectedDeveloper || selectedArea} Developer</h3>
+                    <p>{descriptions[selectedArea]}</p>
+                    <button>Hire {selectedDeveloper || selectedArea} Developer</button>
+                  </div>
+                </div>
+              )}
             </li>
           </ul>
         </div>

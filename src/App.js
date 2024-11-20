@@ -7,10 +7,10 @@ import About from './Components/Home/About/About';
 import Services from './Components/Services/Services';
 import Footer from "./Components/Home/Footer";
 import Forms from "./Components/Contact/contactUs"
-import Developers from './Components/Hire-Developers/Hire-Developers';
 import Talent from './Components/Hire-Talent/Hire-Talent';
 import Industries from './Components/Industries/Industries';
 import Portfolio from './Components/Portfolio/Portfolio';
+import FullBlog from './Components/Blogs/FullBlog.jsx';
 
 function App() {
   return (
@@ -25,9 +25,9 @@ function App() {
           <Route path='/portfolio' element={<Portfolio />} />
           <Route path='/services' element={<Services />} />
           <Route path='/contact' element={<Forms />} />
-          <Route path='/hire-developers' element={<Developers />} />
           <Route path='/hire-talent' element={<Talent />} />
           <Route path='/industries' element={<Industries />} />
+          <Route path="/blogs/:permalink" element={<FullBlog />} />
         </Routes>
         <Footer />  
       </Router>
