@@ -2,14 +2,14 @@ const ServicesData = [
     {
         id: 1,
         title: "UI/UX Design",
-        desc: "My experience allows me to create easy user interface navigation, ensuring the user’s needs are met. Got better understanding of user context and problems, ensuring I offer best-fit solutions to their problems.",
+        desc: "Our experience allows Us to create easy user interface navigation, ensuring the user’s needs are met. Got better understanding of user context and problems, ensuring We offer best-fit solutions to their problems.",
         cover: "./assets/services/services1.jpg",
 
     },
     {
         id: 2,
         title: "Web Development",
-        desc: "With front-end and back-end solutions, I am committed to creating state-of-the-art websites for our customers.",
+        desc: "With front-end and back-end solutions, We am committed to creating state-of-the-art websites for our customers.",
         cover: "./assets/services/services2.jpg",
 
     },
@@ -23,7 +23,7 @@ const ServicesData = [
     {
         id: 4,
         title: "Q/A Services",
-        desc: "Get me come on board to help fix bugs and errors that cause lagging and hinder the smooth productivity of websites.",
+        desc: "Get Us come on board to help fix bugs and errors that cause lagging and hinder the smooth productivity of websites.",
         cover: "./assets/services/services4.jpg",
 
     },

@@ -8,25 +8,21 @@
 body {
   font-family: "Roboto", san-serif;
 }
-.container {
-max-width: 80%;
-margin: auto;
-}
-.img {
-  width: 100%;
-  height: auto;
-}
+
 
 .img img {
   max-width: 100%;
   max-height: 100%;
   width: auto;
   height: auto;
+  border-radius: 8px;
 }
 
 .flex {
 display: flex;
 justify-content: space-between;
+gap: 40px;
+
 }
 ul {
   list-style: none;
@@ -40,12 +36,12 @@ a {
 
 /* Content shift when sidebar is active */
 .main-content {
-  margin-left: 0; /* Default when sidebar is hidden */
+  margin-left: 0; 
   transition: margin-left 0.3s ease;
 }
 
 .main-content.shifted {
-  margin-left: 200px; /* Shifted to the right when sidebar is visible */
+  margin-left: 200px; 
 }
 
 
@@ -58,16 +54,14 @@ a {
 .flex {
   display: flex;
   height: 100%;
-  align-items: center;  /* Center content vertically */
+  align-items: center; 
 }
-.topMargin {
-  margin-top: 80px;
-}
+
 .home {
   height: 90vh;
   position: relative;
   overflow: hidden;
-  background-color: #f7f7f7;  /* Subtle background color */
+  background-color: #f7f7f7;  
 }
 
 .background-animation {
@@ -76,9 +70,9 @@ a {
   left: 0;
   height: 100%;
   width: 200%;
-  background: linear-gradient(45deg, #38d16a, #f54ea2, #1DA1F2);  /* Smooth gradient background */
+  background: linear-gradient(45deg, #1995AD, #A1D6E2, #38d16a); 
   background-size: 200% 200%;
-  animation: gradient 3s ease infinite;  /* Background gradient animation */
+  animation: gradient 3s ease infinite;  
 }
 
 @keyframes gradient {
@@ -95,7 +89,7 @@ a {
 }
 
 .home span {
-  color: #38d16a;  /* Highlight AberRange */
+  color: #38d16a;  
 }
 
 .socialIcons i {
@@ -123,6 +117,7 @@ a {
   cursor: pointer;
   transition: 0.5s;
   margin-top: 30px;
+  border-radius: 8px;
 }
 
 .primary-btn:hover {
@@ -135,7 +130,7 @@ a {
 }
 
 .home p {
-  color: #6185a5;
+  color: #38d16a;
   line-height: 30px;
   margin-bottom: 20px;
 }
@@ -149,16 +144,15 @@ a {
 
 .icon-container {
   position: absolute;
-  top: 50%; /* Center vertically */
-  left: 10%; /* Align to the left side */
-  transform: translateY(-50%); /* Center vertically */
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%); 
   
   i, mat-icon {
-    font-size: 280px; /* Adjust size as needed */
-    color: #38d16a; /* Primary color, adjust as needed */
+    font-size: 280px; 
+    color: #38d16a; 
   }
 }
-
 
 
 /* --------------Branding------------ */
@@ -190,48 +184,6 @@ a {
 }
 /* ------------End of branding---------- */
 
-
-/* -------------about section styling--------- */
-/* .mtop {
-  margin-top: 50px;
-}
-h3 {
-  font-size: 15px;
-  font-weight: 500;
-  text-transform: uppercase;
-  color: #38d16a;
-  margin: 20px 0;
-}
-.heading h1 {
-  font-size: 30px;
-  margin-bottom: 30px;
-}
-.about p{
-  margin-bottom: 20px;
-}
-.about .left {
-  padding-right: 30px;
-}
-.about .img {
-position: relative;
-margin-left: auto;
-margin-right: auto;
-width: 50%;
-}
-.about .img::after {
-  content:'';
-  position: absolute;
-  top: 0;
-  left: -50px;
-  right: 50%;
-  background-color: #000;
-  width: 500px;
-  height: 86vh;
-  z-index: -1;
-} */
-/* ------------end of about styling section---------- */
-
-
 /* -------------about section styling--------- */
 .mtop {
   margin-top: 50px;
@@ -246,8 +198,13 @@ h3 {
 }
 
 .heading h1 {
-  font-size: 30px;
+  font-size: 64px;
   margin-bottom: 30px;
+}
+
+.about {
+  margin-bottom: 20px;
+  text-align: justify;
 }
 
 .about p {
@@ -259,8 +216,8 @@ h3 {
 }
 
 .about .icon {
-  font-size: 150px; /* Set icon size */
-  color: #38d16a; /* Adjust color as needed */
+  font-size: 150px; 
+  color: #38d16a; 
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -280,20 +237,14 @@ h3 {
   border-radius: 50%;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 768px) {
   .about .icon {
-    font-size: 120px; /* Adjust icon size for smaller screens */
+    font-size: 120px; 
   }
 }
 
 /* ------------end of about styling section---------- */
-
-
-
-
-
-
 
 /* ----------Services section----------- */
 .services {

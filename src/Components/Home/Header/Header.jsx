@@ -1,62 +1,71 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import aberrange from "./assets/aberrange-logo-themed.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
 import "./Header.scss";
 import { data, descriptions } from "../../../Models/hireTalentModel";
 import { industriesData } from "../../../Models/industriesModel";
-import { servicesData } from "../../../Models/servicesModel"; // Import your services model
+import { servicesData } from "../../../Models/servicesModel";
 
 const Header = () => {
   const [sidebar, setSidebar] = useState(false);
-  const [dropdownState, setDropdownState] = useState({
-    hire: false,
-    industries: false,
-    services: false, // New state for services dropdown
-  });
+  const [openDropdown, setOpenDropdown] = useState(null); // Tracks the currently open dropdown
   const [selectedArea, setSelectedArea] = useState("Frontend");
   const [selectedDeveloper, setSelectedDeveloper] = useState(null);
 
+  const location = useLocation();
+  const dropdownRef = useRef(null);
+
+  const handleMouseEnter = (dropdownName) => {
+    setOpenDropdown(dropdownName); // Opens the specified dropdown
+  };
+
+  const handleClickOutside = (event) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target)
+    ) {
+      setOpenDropdown(null); // Closes all dropdowns
+    }
+  };
+
   useEffect(() => {
-    const handleScroll = () => {
-      const header = document.querySelector(".header");
-      header.classList.toggle("active", window.scrollY > 200);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleDropdown = (dropdownName) => {
-    setDropdownState((prevState) => ({
-      hire: dropdownName === "hire" ? !prevState.hire : false,
-      industries: dropdownName === "industries" ? !prevState.industries : false,
-      services: dropdownName === "services" ? !prevState.services : false,
-    }));
-  };
+  useEffect(() => {
+    setOpenDropdown(null); // Close dropdowns when route changes
+    setSidebar(false);
+  }, [location]);
 
   return (
     <header className="header">
       <div className="container flex">
         <div className="logo">
-        <Link to="/">
+          <Link to="/">
             <img src={aberrange} alt="Aberrange Logo" />
           </Link>
         </div>
 
-        <div className={sidebar ? "nav-links-sidebar active" : "nav-links-sidebar"}>
-          <ul onClick={() => setSidebar(false)}>
+        <div
+          className={
+            sidebar ? "nav-links-sidebar active" : "nav-links-sidebar"
+          }
+        >
+          <ul>
             <li>
               <Link to="/about">About Us</Link>
             </li>
-            <li>
-              <button
-                className="dropdown-button"
-                onClick={() => toggleDropdown("industries")}
-              >
-                Industries
-              </button>
-              {dropdownState.industries && (
+            <li
+              onMouseEnter={() => handleMouseEnter("industries")}
+              ref={dropdownRef}
+            >
+              <button className="dropdown-button">Industries</button>
+              {openDropdown === "industries" && (
                 <div className="dropdown">
                   <div className="column">
                     {industriesData.industries.map((industry) => (
@@ -80,19 +89,21 @@ const Header = () => {
                 </div>
               )}
             </li>
-            <li>
-              <button
-                className="dropdown-button"
-                onClick={() => toggleDropdown("services")}
-              >
-                Services
-              </button>
-              {dropdownState.services && (
+            <li
+              onMouseEnter={() => handleMouseEnter("services")}
+              ref={dropdownRef}
+            >
+              <button className="dropdown-button">Services</button>
+              {openDropdown === "services" && (
                 <div className="dropdown">
                   <div className="column">
                     {servicesData.engagementModels.map((service) => (
                       <p key={service.title}>
-                        <Link to={`/services/${service.title.toLowerCase().replace(/ /g, '-')}`}>
+                        <Link
+                          to={`/services/${service.title
+                            .toLowerCase()
+                            .replace(/ /g, "-")}`}
+                        >
                           {service.title}
                         </Link>
                       </p>
@@ -101,7 +112,11 @@ const Header = () => {
                   <div className="column">
                     {servicesData.categories.map((category) => (
                       <p key={category.title}>
-                        <Link to={`/services/${category.title.toLowerCase().replace(/ /g, '-')}`}>
+                        <Link
+                          to={`/services/${category.title
+                            .toLowerCase()
+                            .replace(/ /g, "-")}`}
+                        >
                           {category.title}
                         </Link>
                       </p>
@@ -121,14 +136,12 @@ const Header = () => {
             <li>
               <Link to="/contact">Contact Us</Link>
             </li>
-            <li>
-              <button
-                className="dropdown-button"
-                onClick={() => toggleDropdown("hire")}
-              >
-                Hire Talent
-              </button>
-              {dropdownState.hire && (
+            <li
+              onMouseEnter={() => handleMouseEnter("hire")}
+              ref={dropdownRef}
+            >
+              <button className="dropdown-button">Hire Talent</button>
+              {openDropdown === "hire" && (
                 <div className="dropdown">
                   <div className="column">
                     {Object.keys(data).map((area) => (
@@ -146,7 +159,9 @@ const Header = () => {
                       <p
                         key={dev}
                         onClick={() => setSelectedDeveloper(dev)}
-                        className={selectedDeveloper === dev ? "active" : ""}
+                        className={
+                          selectedDeveloper === dev ? "active" : ""
+                        }
                       >
                         {dev}
                       </p>
@@ -155,7 +170,9 @@ const Header = () => {
                   <div className="column">
                     <h3>{selectedDeveloper || selectedArea} Developer</h3>
                     <p>{descriptions[selectedArea]}</p>
-                    <button>Hire {selectedDeveloper || selectedArea} Developer</button>
+                    <button>
+                      Hire {selectedDeveloper || selectedArea} Developer
+                    </button>
                   </div>
                 </div>
               )}
@@ -163,12 +180,17 @@ const Header = () => {
           </ul>
         </div>
 
-        <button className="navbar-items-icon" onClick={() => setSidebar(!sidebar)}>
+        <button
+          className="navbar-items-icon"
+          onClick={() => setSidebar(!sidebar)}
+        >
           {sidebar ? <CloseIcon /> : <MenuIcon />}
         </button>
       </div>
     </header>
   );
 };
+
+
 
 export default Header;

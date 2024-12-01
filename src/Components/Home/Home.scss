@@ -1,0 +1,52 @@
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    text-align: center;
+    padding: 0 20px;
+  
+    .content {
+    //   background-color: rgba(0, 0, 0, 0.6); // Add a translucent overlay for better text visibility
+    //   padding: 20px;
+      border-radius: 10px;
+      max-width: 100%;
+    //   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  
+      .welcome-text {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        font-weight: bold;
+  
+        // span {
+        //   color: #fc5546; // Highlighted color for "AberRange"
+        // }
+      }
+  
+      .intro {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+      }
+  
+      .primary-btn {
+        // background-color: #627792; // Button background color
+        // color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+  
+        // &:hover {
+        //   background-color: #fc5546; // Change to highlight color on hover
+        // }
+      }
+    }
+  }
+  

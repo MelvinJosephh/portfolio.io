@@ -126,14 +126,25 @@ header {
     }
   
     .dropdown {
+
+      position: absolute;
+      z-index: 10;
+      display: flex;
+
       display: flex;
       background: #f9f9f9;
       border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
       position: absolute;
-      top: 100%;
-      left: 0;
-      width: 90%;
+      top: 100%; 
+      left: 50%; /* Centers horizontally */
+      transform: translateX(-50%); /* Ensures it's perfectly centered */
+    
+      width: 80%; /* Keep your desired width */
       padding: 20px;
+      
   
       .column {
         flex: 1;
@@ -164,6 +175,7 @@ header {
         }
       }
     }
+    
     .dropdown-button {
         background: none;
         border: none;
@@ -172,9 +184,15 @@ header {
         font-weight: bold;
         color: inherit;
         padding: 5px 0;
+        position: relative;
+        z-index: 5;
         &:hover {
             color: #38d16a;
         }
+      }
+
+      .dropdown:hover {
+        visibility: visible;
       }
       
   }

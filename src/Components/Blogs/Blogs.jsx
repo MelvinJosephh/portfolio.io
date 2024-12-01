@@ -11,7 +11,7 @@ const Blogs = () => {
   const fetchBlogs = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("https://aberrange-server.netlify.app/api/blogs");
+      const response = await axios.get("http://localhost:5000/api/blogs");
       const blogs = response.data.map((blog) => ({
         _id: blog._id,
         title: blog.title,
