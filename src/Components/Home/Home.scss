@@ -1,5 +1,5 @@
 .home {
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -8,33 +8,33 @@
     color: #ffffff;
     text-align: center;
     padding: 0 20px;
-  
+
     .content {
-    //   background-color: rgba(0, 0, 0, 0.6); // Add a translucent overlay for better text visibility
-    //   padding: 20px;
       border-radius: 10px;
-      max-width: 100%;
-    //   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  
+      min-width: auto;
+      min-height: auto;
+      display: flex; 
+      flex-direction: column; 
+      align-items: flex-start; 
+      text-align: left; 
+      padding: 1rem; 
+      margin-left: 0; 
+    
       .welcome-text {
-        font-size: 2.5rem;
+        font-size: 60px;
         margin-bottom: 1rem;
         font-weight: bold;
-  
-        // span {
-        //   color: #fc5546; // Highlighted color for "AberRange"
-        // }
       }
-  
+    
       .intro {
-        font-size: 1.2rem;
-        line-height: 1.8;
+        font-size: 20px;
+        transform: none;
+        transition: 1s;
         margin-bottom: 2rem;
+        width: 50%;
       }
-  
+    
       .primary-btn {
-        // background-color: #627792; // Button background color
-        // color: #ffffff;
         border: none;
         padding: 10px 20px;
         border-radius: 5px;
@@ -42,11 +42,17 @@
         font-weight: bold;
         cursor: pointer;
         transition: background-color 0.3s ease;
-  
-        // &:hover {
-        //   background-color: #fc5546; // Change to highlight color on hover
-        // }
       }
     }
+
+    @media (max-width: 768px) {
+      .content {
+        position: static;
+        transform: none;
+        margin: auto;
+      }
+    }
+    
+    
   }
   

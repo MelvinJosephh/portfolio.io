@@ -1,63 +1,67 @@
-import React, { useState } from 'react';
-import { TextField, Button, Container, Typography, Box } from '@mui/material';
-import { styled } from '@mui/material/styles';
-import axios from 'axios';
+import React, { useState } from "react";
+import { TextField, Button, Container, Typography, Box } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import axios from "axios";
 
 const StyledButton = styled(Button)({
-  padding: '15px 40px',
-  backgroundColor: '#38d16a',
-  '&:hover': {
-    backgroundColor: '#f54ea2',
-    boxShadow: '0 13px 27px 0 rgb(245 78 162 / 25%)',
+  padding: "15px 40px",
+  backgroundColor: "#38d16a",
+  "&:hover": {
+    backgroundColor: "#f54ea2",
+    boxShadow: "0 13px 27px 0 rgb(245 78 162 / 25%)",
   },
 });
 
 // Create a styled TextField with custom border and focus color
 const StyledTextField = styled(TextField)({
-  '& .MuiOutlinedInput-root': {
-    '& fieldset': {
-      borderColor: '#38d16a', // Default border color
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: "#38d16a", // Default border color
     },
-    '&:hover fieldset': {
-      borderColor: '#f54ea2', // Border color on hover
+    "&:hover fieldset": {
+      borderColor: "#f54ea2", // Border color on hover
     },
-    '&.Mui-focused fieldset': {
-      borderColor: '#38d16a', // Border color when focused
+    "&.Mui-focused fieldset": {
+      borderColor: "#38d16a", // Border color when focused
     },
   },
 });
 
 function Forms() {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    companyName: '',
-    email: '',
-    phone: '',
-    subject:'',
-    message: '',
+    firstName: "",
+    lastName: "",
+    companyName: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [touched, setTouched] = useState({});
 
   const validateField = (name, value) => {
-    let error = '';
-    if (name === 'firstName' || name === 'lastName') {
+    let error = "";
+    if (name === "firstName" || name === "lastName") {
       if (!value.trim()) {
-        error = `${name === 'firstName' ? 'First' : 'Last'} name is required.`;
+        error = `${name === "firstName" ? "First" : "Last"} name is required.`;
       } else if (value.length < 3) {
-        error = `${name === 'firstName' ? 'First' : 'Last'} name should be at least three characters long.`;
+        error = `${
+          name === "firstName" ? "First" : "Last"
+        } name should be at least three characters long.`;
       } else if (!/^[A-Za-z\s]+$/.test(value)) {
-        error = `${name === 'firstName' ? 'First' : 'Last'} name should contain only letters and spaces.`;
+        error = `${
+          name === "firstName" ? "First" : "Last"
+        } name should contain only letters and spaces.`;
       }
-    } else if (name === 'email') {
+    } else if (name === "email") {
       if (!/\S+@\S+\.\S+/.test(value)) {
-        error = 'Please enter a valid email address.';
+        error = "Please enter a valid email address.";
       }
-    } else if (name === 'phone') {
-     if (value.length < 7 || value.length > 15) {
-        error = 'Phone number should be between 7 and 15 digits long.';
+    } else if (name === "phone") {
+      if (value.length < 7 || value.length > 15) {
+        error = "Phone number should be between 7 and 15 digits long.";
       }
     }
     return error;
@@ -83,29 +87,37 @@ function Forms() {
 
     if (Object.keys(validationErrors).length === 0) {
       try {
-        const response = await fetch('http://localhost:5000/api/contact', {
-          method: 'POST',
+        const response = await fetch("http://localhost:5000/api/contact", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(formData),
-          mode: 'cors', // Optional: Ensures CORS mode for the request
+          mode: "cors", // Optional: Ensures CORS mode for the request
         });
 
         const result = await response.json();
         if (response.ok) {
           console.log(result.message); // "Message sent successfully"
-          setFormData({ firstName: '', lastName: '', companyName: '', email: '', phone: '', subject:'', message: '' });
+          setFormData({
+            firstName: "",
+            lastName: "",
+            companyName: "",
+            email: "",
+            phone: "",
+            subject: "",
+            message: "",
+          });
         } else {
-          console.error('Error:', result.message);
+          console.error("Error:", result.message);
         }
       } catch (error) {
-        console.error('Fetch error:', error);
+        console.error("Fetch error:", error);
       } finally {
         setIsSubmitting(false);
       }
     } else {
-      console.log('Form has errors:', validationErrors);
+      console.log("Form has errors:", validationErrors);
       setIsSubmitting(false);
     }
   };
@@ -114,7 +126,6 @@ function Forms() {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-  
 
   const handleBlur = (e) => {
     const { name, value } = e.target;
@@ -139,7 +150,7 @@ function Forms() {
               onChange={handleChange}
               onBlur={handleBlur}
               error={!!errors.firstName && touched.firstName}
-              helperText={touched.firstName ? errors.firstName : ''}
+              helperText={touched.firstName ? errors.firstName : ""}
             />
           </Box>
 
@@ -153,7 +164,7 @@ function Forms() {
               onChange={handleChange}
               onBlur={handleBlur}
               error={!!errors.lastName && touched.lastName}
-              helperText={touched.lastName ? errors.lastName : ''}
+              helperText={touched.lastName ? errors.lastName : ""}
             />
           </Box>
 
@@ -179,7 +190,7 @@ function Forms() {
               onChange={handleChange}
               onBlur={handleBlur}
               error={!!errors.email && touched.email}
-              helperText={touched.email ? errors.email : ''}
+              helperText={touched.email ? errors.email : ""}
             />
           </Box>
 
@@ -194,23 +205,23 @@ function Forms() {
               onChange={handleChange}
               onBlur={handleBlur}
               error={!!errors.phone && touched.phone}
-              helperText={touched.phone ? errors.phone : ''}
+              helperText={touched.phone ? errors.phone : ""}
             />
           </Box>
 
           <Box sx={{ mb: 3 }}>
-        <StyledTextField
-          fullWidth
-          label="What can we help you with?"
-          name="subject"
-          variant="outlined"
-          value={formData.subject}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          error={!!errors.subject && touched.subject}
-          helperText={touched.subject ? errors.subject : ''}
-        />
-      </Box>
+            <StyledTextField
+              fullWidth
+              label="What can we help you with?"
+              name="subject"
+              variant="outlined"
+              value={formData.subject}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={!!errors.subject && touched.subject}
+              helperText={touched.subject ? errors.subject : ""}
+            />
+          </Box>
 
           <Box sx={{ mb: 3 }}>
             <StyledTextField
@@ -225,7 +236,12 @@ function Forms() {
             />
           </Box>
 
-          <StyledButton type="submit" variant="contained" fullWidth disabled={isSubmitting}>
+          <StyledButton
+            type="submit"
+            variant="contained"
+            fullWidth
+            disabled={isSubmitting}
+          >
             Send Message
           </StyledButton>
         </form>
