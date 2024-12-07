@@ -84,11 +84,14 @@ const Header = () => {
             <li>
               <Link to="/about">About Us</Link>
             </li>
+            <li>
             <Dropdown
               title="Industries"
               items={industriesData}
               renderContent={renderIndustriesContent}
             />
+            </li>
+            <li>
             <Dropdown
               title="Services"
               items={servicesData}
@@ -120,16 +123,20 @@ const Header = () => {
                 </>
               )}
             />
+            </li>
+          
             <li>
               <Link to="/portfolio">Portfolio</Link>
             </li>
             <li>
               <Link to="/contact">Contact Us</Link>
             </li>
+            <li>
             <Dropdown
               title="Hire Talent"
               renderContent={renderHireContent}
             />
+            </li>
           </ul>
         </div>
 

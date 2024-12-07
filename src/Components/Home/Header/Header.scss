@@ -1,17 +1,12 @@
 
-
-  
-  header ul {
-    display: inline-block;
-  }
   header ul li {
     display: inline-block;
     margin-left: 30px;
   }
-  header ul li a {
-    font-weight: 500;
-    transition: 0.5s;
-  }
+  // header ul li a {
+  //   font-weight: 500;
+  //   transition: 0.5s;
+  // }
   header ul li a:hover {
     color: #38d16a;
     font-weight: 500;
