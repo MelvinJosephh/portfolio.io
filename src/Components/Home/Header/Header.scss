@@ -29,6 +29,17 @@
     height: auto;
     transition: max-width 0.3s ease-in-out;
   }
+
+  .column button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+  }
   
   
   @media screen and (max-width: 768px) {

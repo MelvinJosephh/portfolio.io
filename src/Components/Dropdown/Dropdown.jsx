@@ -32,6 +32,7 @@ const Dropdown = ({ title, items = [], renderContent, onClose }) => {
             </li>
           ))}
         </ul>
+        
       </div>
     ));
 
