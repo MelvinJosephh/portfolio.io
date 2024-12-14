@@ -1,5 +1,6 @@
-import React from 'react'
-import ServicesData from "../Services/ServicesData"
+import React from 'react';
+import ServicesData from "../Services/ServicesData";
+
 const Services = () => {
   return (
     <>
