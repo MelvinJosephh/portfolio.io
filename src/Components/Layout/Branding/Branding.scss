@@ -1,0 +1,34 @@
+/* --------------Branding------------ */
+
+.branding {
+    background-color: #08071c;
+    color: #fff;
+    padding: 50px 0;
+  }
+  
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    grid-gap: 30px;
+    }
+  
+  
+  .branding h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #38d16a;
+  }
+  
+  
+  
+  .branding h2 {
+    font-weight: 500;
+    font-size: 22px;
+    margin: 10px 0 20px 0;
+  }
+  .branding p {
+    color: #fff;
+    opacity: 0.7;
+  }
+  /* ------------End of branding---------- */

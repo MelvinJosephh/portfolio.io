@@ -1,0 +1,83 @@
+/* ----------Services section----------- */
+.services {
+    text-align: center;
+    background-color: #f8f9fe;
+    padding: 50px 0;
+  }
+  .services .box {
+  text-align: left;
+  }
+  .services img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .services .text {
+  background-color: #fff;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.06);
+  padding: 30px;
+  margin: 20px;
+  margin-top: -30px;
+  position: relative;
+  z-index: 1;
+  }
+  .services .text h2 {
+    font-weight: 500;
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  /* ----------Services section end----------- */
+
+  
+
+/* ----------SKills section styling........... */
+.skill {
+    padding: 50px 0;
+  }
+  .skill .heading {
+  text-align: center;
+  }
+  .progress {
+  background-color: #d5d5d5;
+  border-radius: 20px;
+  position: relative;
+  margin: 45px 0;
+  height: 10px;
+  width: 90%;
+  }
+  .progress h4 {
+    position: absolute;
+    color: #000;
+    top: -30px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .progress h4:nth-child(2){
+  right: 0;
+  font-size: 17px;
+  font-weight: 400;
+  color: #7f9cb5;
+  }
+  .progress-done {
+    background-color: #38d16a;
+    border-radius: 20px;
+    color: #fff;
+    height: 100%;
+    width: 0;
+    opacity: 0;
+    transition: 1s ease 0.3s;
+  }
+  .skill .right {
+    padding: 0 50px;
+  }
+  .skill .right h1 {
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .skill .right p{
+    margin-bottom: 20px;
+  }
+  /* End of skills section styling */
+  
+  

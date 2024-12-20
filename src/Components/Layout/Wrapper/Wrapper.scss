@@ -1,0 +1,34 @@
+/* --------Wrapper styling-------- */
+.wrapper .container {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+  }
+  .wrapper h2 {
+    font-size: 40px;
+  }
+  .wrapper p {
+    opacity: 1;
+    margin-bottom: 30px;
+  }
+  /* --------Wrapper styling-------- */
+
+  
+/* ----------WrapperOne--------- */
+.grid1 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+  }
+  .WrapperOne {
+    background: #38d16a;
+    text-align: center;
+  }
+  .WrapperOne h1 {
+    color: #fff;
+  }
+  .WrapperOne p{
+    font-size: 14px;
+    margin: 10px 0;
+  }
+  /* ----------WrapperOne--------- */

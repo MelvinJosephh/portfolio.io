@@ -1,16 +1,16 @@
 import './App.css';
-import Header from "./Components/Home/Header/Header.jsx";
+import Header from "./Components/Layout/Header/Header.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Homepage from './Components/pageContent/Homepage';
-import Blogs from './Components/Blogs/Blogs';
-import About from './Components/Home/About/About';
-import Services from './Components/Services/Services';
-import Footer from "./Components/Home/Footer";
-import Forms from "./Components/Contact/contactUs"
-import Talent from './Components/Hire-Talent/Hire-Talent';
-import Industries from './Components/Industries/Industries';
-import Portfolio from './Components/Portfolio/Portfolio';
-import FullBlog from './Components/Blogs/FullBlog.jsx';
+import Homepage from './Components/Pages/Homepage';
+import Blogs from './Components/Features/Blogs/Blogs';
+import About from './Components/Features/About/About';
+import Services from './Components/Features/Services/Services';
+import Footer from "./Components/Layout/Footer/Footer.jsx";
+import Forms from "./Components/Features/Contact/contactUs"
+import Talent from './Components/Pages/Hire-Talent/Hire-Talent.jsx';
+import Industries from './Components/Pages/Industries/Industries.jsx';
+import Portfolio from './Components/Pages/Portfolio/Portfolio.jsx';
+import FullBlog from './Components/Features/Blogs/FullBlog.jsx';
 
 function App() {
   return (
