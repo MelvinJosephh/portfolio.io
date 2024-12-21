@@ -1,0 +1,140 @@
+/* Global Header Styles */
+
+header ul li {
+  display: inline-block;
+  margin-left: 30px;
+}
+
+header ul li a:hover {
+  color: var(--primary-color); /* Using global primary color */
+  font-weight: 500;
+}
+
+.navbar-items-icon {
+  color: var(--dark-text-color); /* Using global dark text color */
+  display: none;
+}
+
+header.active {
+  position: sticky;
+  top: 0;
+  background-color: var(--header-bg-color); /* Using global header background color */
+  box-shadow: 0 2px 28px var(--box-shadow-color); /* Using global box-shadow color */
+  width: 100%;
+  z-index: 10;
+}
+
+.logo img {
+  max-width: 180px;
+  height: auto;
+  transition: max-width 0.3s ease-in-out;
+}
+
+.column button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: var(--primary-color); /* Default button color */
+  color: #fff;
+}
+
+.column button:hover {
+  background-color: var(--secondary-color); /* Button hover color */
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+  .logo img {
+    max-width: 150px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links-sidebar {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    width: 70%;
+    height: 100vh;
+    background-color: var(--header-bg-color); /* Using global header background */
+    transition: left 0.3s ease;
+    z-index: 100;
+    box-shadow: 2px 0 5px var(--box-shadow-color); /* Using global box-shadow color */
+    padding-top: 20px;
+  }
+
+  .nav-links-sidebar.active {
+    left: 0;
+  }
+
+  .nav-links-sidebar ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 20px;
+    list-style-type: none;
+  }
+
+  .nav-links-sidebar li {
+    width: 100%;
+    margin: 15px 0;
+    text-align: left;
+  }
+
+  .nav-links-sidebar li a {
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--text-color); /* Using global text color */
+    transition: 0.3s;
+    display: block;
+    padding: 10px 0;
+  }
+
+  .nav-links-sidebar li a:hover {
+    color: var(--primary-color); /* Using global primary color */
+    font-weight: 600;
+  }
+
+  .navbar-items-icon {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: var(--dark-text-color); /* Using global dark text color */
+    background: none;
+    font-size: 28px;
+  }
+}
+
+/* Header Component */
+.header {
+  position: relative;
+  display: block;
+  top: 0;
+  background: var(--header-bg-color); /* Using global header background color */
+  z-index: 100;
+  width: 100%; /* Full width */
+  box-sizing: border-box;
+  padding: 10px 5%; /* Add padding for wider spacing */
+  transition: 0.3s ease;
+
+  &.active {
+    box-shadow: 0 2px 10px var(--box-shadow-color); /* Using global box-shadow color */
+  }
+
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+  }
+}

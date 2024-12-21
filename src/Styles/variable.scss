@@ -1,0 +1,27 @@
+
+/* variables.scss */
+:root {
+    --primary-color: #38d16a;
+    --secondary-color: #f54ea2;
+    --accent-color: #1DA1F2;
+    --background-color: #f7f7f7;
+    --text-color: #333;
+    --light-text-color: #6185a5;
+    --dark-text-color: #000;
+    --header-bg-color: #fff;
+    --box-shadow-color: rgba(0, 0, 0, 0.06);
+    --overlay-color: rgba(0, 0, 0, 0.1);
+    --hover-text-color: #38d16a;
+    --link-hover-color: #38d16a;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  h1, h2, h3 {
+    font-family: 'Bree Serif', serif;
+  }
+  
