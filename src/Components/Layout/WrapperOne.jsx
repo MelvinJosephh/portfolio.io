@@ -1,30 +1,14 @@
 import React from 'react';
-import '../../Styles/layout/Wrapper.scss'
+import '../../Styles/layout/Wrapper.scss';
+import wrapperData from '../../Assets/data/wrapperData';
 
 const WrapperOne = () => {
-    const data = [
-        {
-            num: "64%",
-            text: "AWARDS WINNING",
-        },
-        {
-            num: "99%",
-            text: "SATISFIED CLIENTS",
-        },
-        {
-            num: "35",
-            text: "CREATIVE PROJECTS",
-        },
-        {
-            num: "500",
-            text: "LINES OF CODE",
-        },
-    ]
+
   return (
     <>
     <section class="branding WrapperOne">
         <div className="container grid1">
-        {data.map((val) => {
+        {wrapperData.map((val) => {
         return (
             <>
             <div className="box">

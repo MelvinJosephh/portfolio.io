@@ -1,19 +1,14 @@
 import React from 'react';
-import '../../Styles/layout/Wrapper.scss'
+import '../../Styles/layout/Wrapper.scss';
+import brandingWrapper from '../../Assets/data/brandingWrapper';
 
 const Wrapper = () => {
-    const data = [
-        {
-            title: "LOOKING FOR EXCLUSIVE SERVICES?",
-            heading: "Get The Best For Your Business",
-            desc: "Get familiar with modern developments as soon as the touch the market. I will upgrade your system and perform efficient maintenance for better customer experience."
-        },
-    ]
+
   return (
     <>
       <section className="branding wrapper">
         <div className="container">
-            {data.map((val)=> {
+            {brandingWrapper.map((val)=> {
                 return (
                     <div className="box">
                         <h3>{val.title}</h3>
