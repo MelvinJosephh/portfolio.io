@@ -38,15 +38,16 @@ const Dropdown = ({ title, items = [], renderContent, onClose }) => {
 
   return (
     <li className="dropdown-wrapper" ref={dropdownRef}>
-      <button className="dropdown-button" onClick={toggleDropdown}>
-        {title}
-      </button>
-      {isOpen && (
-        <div className="dropdown-content">
-          {renderContent ? renderContent(items) : <div className="dropdown-sections">{renderSections()}</div>}
-        </div>
-      )}
-    </li>
+    <a  href="#" onClick={(e) => { e.preventDefault(); toggleDropdown(); }}>
+      {title}
+    </a>
+    {isOpen && (
+      <div className="dropdown-content">
+        {renderContent ? renderContent(items) : <div className="dropdown-sections">{renderSections()}</div>}
+      </div>
+    )}
+  </li>
+  
   );
 };
 

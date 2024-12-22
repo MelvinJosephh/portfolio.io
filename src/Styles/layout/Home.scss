@@ -1,5 +1,5 @@
 .home {
-  display: block;
+  display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -8,46 +8,74 @@
   color: #ffffff;
   text-align: center;
   padding: 0 20px;
+  background-color: var(--background-color);
 
   .content {
-    border-radius: 10px;
-    min-width: auto;
-    min-height: auto;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    padding: 8rem;
-    margin-left: 0;
+    align-items: center; /* Default to center for mobile */
+    text-align: center;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 100%; /* Ensure content doesn’t stretch too wide */
+    margin: 0 auto; /* Center content by default */
+    position: relative; /* Ensure content is above background */
+    
+    /* Large screen adjustments */
+    @media (min-width: 1024px) { /* For laptops and desktops */
+      align-items: flex-start; /* Left-align content */
+      text-align: left;
+      max-width: 1200px; /* Limit content width */
+      padding: 3rem; /* Reduce padding for large screens */
+    }
+    
+    /* Mobile and smaller screen adjustments */
+    @media (max-width: 768px) {
+      padding: 4rem 2rem; /* Adjust padding for smaller screens */
+      text-align: center; /* Center content on small screens */
+      align-items: center; /* Center content for mobile */
+    }
 
     .welcome-text {
-      font-size: 60px;
+      font-size: 2rem; /* Adjust font size for mobile */
       margin-bottom: 1rem;
       font-weight: bold;
-        color: #38d16a;  
+      color: var(--primary-color);
+      
+      span {
+        font-size: 2.2rem; /* Default for mobile */
+      }
+
+      @media (min-width: 768px) {
+        font-size: 3.5rem;
+        span {
+          font-size: 3.8rem; /* Adjust span for larger screens */
+        }
+      }
+      @media (min-width: 1024px) {
+        font-size: 4.5rem;
+        span {
+          font-size: 4.8rem; /* Larger span for desktop */
+        }
+      }
     }
 
     .intro {
-      font-size: 30px;
-      transform: none;
-      transition: 1s;
+      font-size: 1.2rem;
       margin-bottom: 2rem;
-      width: 50%;
+      width: 80%;
+      line-height: 1.5;
+      
+      @media (min-width: 768px) {
+        font-size: 1.5rem;
+        width: 60%; /* Adjust width for better readability */
+      }
+      @media (min-width: 1024px) {
+        font-size: 1.8rem;
+        width: 50%; /* For larger screens */
+      }
     }
 
-    p {
-      color: #38d16a;
-      line-height: 30px;
-      margin-bottom: 20px;
-    }
-
-  }
-
-  @media (max-width: 768px) {
-    .content {
-      position: static;
-      transform: none;
-      margin: auto;
-    }
+   
   }
 }

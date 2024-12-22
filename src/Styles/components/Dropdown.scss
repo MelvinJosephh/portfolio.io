@@ -3,21 +3,6 @@
   position: relative;
   z-index: 1000;
 
-  .dropdown-button {
-    background: none;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    transition: color 0.3s; 
-
-    &:hover,
-    &:focus {
-      color: var(--primary-color); 
-      outline: none;
-      font-weight: bold;
-    }
-  }
-
   .dropdown-content {
     position: fixed; 
     top: 80px; 

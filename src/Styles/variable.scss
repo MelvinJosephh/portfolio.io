@@ -1,19 +1,32 @@
-
 /* variables.scss */
 :root {
-    --primary-color: #38d16a;
-    --secondary-color: #f54ea2;
-    --accent-color: #1DA1F2;
-    --background-color: #f7f7f7;
-    --text-color: #333;
-    --light-text-color: #6185a5;
-    --dark-text-color: #000;
-    --header-bg-color: #fff;
-    --box-shadow-color: rgba(0, 0, 0, 0.06);
-    --overlay-color: rgba(0, 0, 0, 0.1);
-    --hover-text-color: #38d16a;
-    --link-hover-color: #38d16a;
-  }
+  /* Primary Colors */
+  --primary-color: #957E6E; /* Warm Beige - most prominent */
+  --secondary-color: #B1B0AE; /* Light Grayish Taupe */
+  --accent-color: #BCBBB9; /* Pale Gray */
+  
+  /* Background & Text Colors */
+  --background-color: #f3ece6; /* Light warm beige background */
+  --text-color: #222; /* Darker gray text for better contrast */
+  --light-text-color: #7d7d7d; /* Slightly darker soft gray */
+  --dark-text-color: #000; /* Black text for stronger emphasis */
+  
+  /* Header & UI Elements */
+  --header-bg-color: #B0AFAE; /* Grayish Taupe - subtle header background */
+  --box-shadow-color: rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+  --overlay-color: rgba(0, 0, 0, 0.1); /* Light overlay color */
+  
+  /* Hover & Links */
+  --hover-text-color: #7f6c59; /* Darker beige for hover */
+  --link-hover-color: #7f6c59; /* More contrasting link hover color */
+
+  /* Additional Colors */
+  --card-background-color: #f0f0f0; /* Light gray for card backgrounds */
+  --border-color: #d1d1d1; /* Subtle gray for borders */
+  --text-muted-color: #a0a0a0; /* Muted text color for less emphasis */
+}
+
+
   
   body {
     font-family: 'Roboto', sans-serif;

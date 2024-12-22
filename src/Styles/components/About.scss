@@ -8,7 +8,7 @@
     font-size: 15px;
     font-weight: 500;
     text-transform: uppercase;
-    color: #38d16a;
+    color: var(--primary-color);
     margin: 20px 0;
   }
   
@@ -32,7 +32,7 @@
   
   .about .icon {
     font-size: 150px; 
-    color: #38d16a; 
+    color: var(--primary-color); 
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -44,7 +44,7 @@
     top: 0;
     left: -50px;
     right: 50%;
-    background-color: #000;
+    background-color: var(--background-color);
     width: 100px;
     height: 100px;
     z-index: -1;

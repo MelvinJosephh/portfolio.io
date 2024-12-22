@@ -1,7 +1,5 @@
-
-
 /* global.scss */
-@import './variable.scss';  /* Import variables first to use them */
+@import './variable.scss'; 
 
 .container {
   width: 90%;
@@ -81,23 +79,44 @@ a {
   }
 }
 
-  //button styling
-  .primary-btn {
-    padding: 15px 40px;
-    background-color: #38d16a;
-    color: #fff;
-    font-weight: 600;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    border-radius: 8px;
+/* Global Button Styles */
+button, .primary-btn {
+  border: none;
+  padding: 10px 20px;  /* Reduced padding for a smaller button */
+  border-radius: 5px;
+  font-size: 0.9rem;    /* Slightly smaller base font size */
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: var(--primary-color); 
+  color: #fff;
+  letter-spacing: 1px;
+
+  a {
+    color: inherit; 
+    text-decoration: none; 
   }
-  
-  .primary-btn:hover {
-    background-color: #2f9a56;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    background-color: var(--secondary-color); 
   }
+
+  /* Responsive button adjustments */
+  @media (max-width: 480px) {
+    font-size: 1rem;    /* Slightly larger font on mobile for better readability */
+    padding: 8px 16px;  /* Smaller button padding on mobile */
+  }
+
+  @media (min-width: 768px) {
+    font-size: 1.1rem;  /* Slightly smaller font for tablet */
+    padding: 10px 20px; /* Adjust padding for medium screens */
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 1.2rem;  /* Slightly larger font for desktop */
+    padding: 12px 24px; /* Adjust padding for desktop */
+  }
+}
 
 @media screen and (max-width: 768px) {
   .flex {
@@ -113,11 +132,6 @@ a {
     font-size: 28px;
   }
 
-  .primary-btn {
-    padding: 10px 30px;
-    font-size: 14px;
-  }
-
   .left, .right {
     width: 100%;
   }
@@ -129,10 +143,6 @@ a {
 
   .home {
     height: 134vh;
-  }
-
-  .home .img {
-    visibility: hidden;
   }
 
   .branding .grid {

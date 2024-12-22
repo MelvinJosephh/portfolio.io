@@ -9,7 +9,7 @@ const Services = () => {
       <section className="services topMargin" id="Services">
         <div className="container">
             <div className="heading">
-                <h3>MY SERVICES</h3>
+                <h3>Our SERVICES</h3>
                 <h1>Interactive Services Offered</h1>
             </div>
             <div className="contain grid topMargin">

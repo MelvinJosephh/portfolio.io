@@ -1,8 +1,7 @@
 /* --------------Branding------------ */
 
 .branding {
-    background-color: #08071c;
-    color: #fff;
+    background-color: var( --card-background-color);
     padding: 50px 0;
   }
   
@@ -17,18 +16,16 @@
   .branding h1 {
     font-size: 36px;
     margin-bottom: 20px;
-    color: #38d16a;
+    color: var(--primary-color);
   }
   
   
   
   .branding h2 {
     font-weight: 500;
-    font-size: 22px;
     margin: 10px 0 20px 0;
   }
   .branding p {
-    color: #fff;
     opacity: 0.7;
   }
   /* ------------End of branding---------- */

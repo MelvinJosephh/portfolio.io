@@ -1,52 +1,52 @@
-
-
-/* ----------SKills section styling........... */
+/* ---------- Skills section styling ----------- */
 .skill {
-    padding: 50px 0;
-  }
-  .skill .heading {
+  padding: 50px 0;
+  background-color: var( --card-background-color); /* Global primary color */
+}
+.skill .heading {
   text-align: center;
-  }
-  .progress {
-  background-color: #d5d5d5;
+  color: var(--text-color); /* Global text color */
+}
+.progress {
+  background-color: var(--border-color); /* Subtle gray from global border color */
   border-radius: 20px;
   position: relative;
   margin: 45px 0;
   height: 10px;
   width: 90%;
-  }
-  .progress h4 {
-    position: absolute;
-    color: #000;
-    top: -30px;
-    font-size: 18px;
-    font-weight: 500;
-  }
-  .progress h4:nth-child(2){
+}
+.progress h4 {
+  position: absolute;
+  color: var(--dark-text-color); /* Strong emphasis color */
+  top: -30px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.progress h4:nth-child(2) {
   right: 0;
   font-size: 17px;
   font-weight: 400;
-  color: #7f9cb5;
-  }
-  .progress-done {
-    background-color: #38d16a;
-    border-radius: 20px;
-    color: #fff;
-    height: 100%;
-    width: 0;
-    opacity: 0;
-    transition: 1s ease 0.3s;
-  }
-  .skill .right {
-    padding: 0 50px;
-  }
-  .skill .right h1 {
-    font-weight: 500;
-    margin-bottom: 20px;
-  }
-  .skill .right p{
-    margin-bottom: 20px;
-  }
-  /* End of skills section styling */
-  
-  
+  color: var(--accent-color); /* Global accent color for secondary text */
+}
+.progress-done {
+  background-color: var(--light-text-color); /* Light text color for progress indicator */
+  border-radius: 20px;
+  height: 100%;
+  width: 0;
+  opacity: 0;
+  transition: 1s ease 0.3s;
+}
+.skill .right {
+  padding: 0 50px;
+  color: var(--text-muted-color); /* Muted text color for less emphasis */
+}
+.skill .right h1 {
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: var(--dark-text-color); /* Stronger emphasis for headers */
+}
+.skill .right p {
+  margin-bottom: 20px;
+  color: var(--text-color); /* Standard readable text */
+}
+/* --------- End of skills section styling --------- */

@@ -5,9 +5,9 @@ import '../Styles/components/ContactUs.scss'
 
 const StyledButton = styled(Button)({
   padding: "15px 40px",
-  backgroundColor: "#38d16a",
+  backgroundColor: "var(--primary-color)",
   "&:hover": {
-    backgroundColor: "#f54ea2",
+    backgroundColor: "var(--secondary-color)",
     boxShadow: "0 13px 27px 0 rgb(245 78 162 / 25%)",
   },
 });
@@ -16,13 +16,13 @@ const StyledButton = styled(Button)({
 const StyledTextField = styled(TextField)({
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
-      borderColor: "#38d16a", // Default border color
+      borderColor: "var(--primary-color)", // Default border color
     },
     "&:hover fieldset": {
-      borderColor: "#f54ea2", // Border color on hover
+      borderColor: "var(--secondary-color)", // Border color on hover
     },
     "&.Mui-focused fieldset": {
-      borderColor: "#38d16a", // Border color when focused
+      borderColor: "var(--primary-color)", // Border color when focused
     },
   },
 });

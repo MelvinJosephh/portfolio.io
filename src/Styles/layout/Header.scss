@@ -6,7 +6,7 @@ header ul li {
 }
 
 header ul li a:hover {
-  color: var(--primary-color); /* Using global primary color */
+  color: var(--primary-color); 
   font-weight: 500;
 }
 
@@ -18,7 +18,7 @@ header ul li a:hover {
 header.active {
   position: sticky;
   top: 0;
-  background-color: var(--header-bg-color); /* Using global header background color */
+  background-color: var(--header-bg-color); 
   box-shadow: 0 2px 28px var(--box-shadow-color); /* Using global box-shadow color */
   width: 100%;
   z-index: 10;
@@ -30,21 +30,6 @@ header.active {
   transition: max-width 0.3s ease-in-out;
 }
 
-.column button {
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  background-color: var(--primary-color); /* Default button color */
-  color: #fff;
-}
-
-.column button:hover {
-  background-color: var(--secondary-color); /* Button hover color */
-}
 
 /* Mobile Styles */
 @media screen and (max-width: 768px) {
@@ -66,7 +51,7 @@ header.active {
     transition: left 0.3s ease;
     z-index: 100;
     box-shadow: 2px 0 5px var(--box-shadow-color); /* Using global box-shadow color */
-    padding-top: 20px;
+    padding-top: 5px;
   }
 
   .nav-links-sidebar.active {
@@ -83,8 +68,8 @@ header.active {
 
   .nav-links-sidebar li {
     width: 100%;
-    margin: 15px 0;
-    text-align: left;
+    margin: 8px 0;
+    text-align: center;
   }
 
   .nav-links-sidebar li a {
@@ -104,7 +89,7 @@ header.active {
 
   .navbar-items-icon {
     display: block;
-    position: absolute;
+    position: center;
     top: 20px;
     right: 20px;
     color: var(--dark-text-color); /* Using global dark text color */

@@ -15,7 +15,7 @@ const Header = () => {
   const [selectedDeveloper, setSelectedDeveloper] = useState(null);
 
   const unifiedButton = (label, link) => (
-    <button>
+    <button className="primary-btn">
       <Link to={link}>{label}</Link>
     </button>
   );
@@ -102,7 +102,7 @@ const Header = () => {
     <header className="header">
       <div className="container">
         <div className="logo">
-          <Link to="/">
+          <Link to="/" onClick={() => setSidebar(false)}>
             <img src={aberrange} alt="Aberrange Logo" />
           </Link>
         </div>
@@ -111,26 +111,26 @@ const Header = () => {
           <ul>
             <li>
               <Dropdown
-                title="Industries"
+                title="Industries" onClick={() => setSidebar(false)}
                 items={industriesData}
                 renderContent={renderIndustriesContent}
               />
             </li>
             <li>
               <Dropdown
-                title="Services"
+                title="Services" onClick={() => setSidebar(false)}
                 items={servicesData}
                 renderContent={renderContent}
               />
             </li>
             <li>
-              <Link to="/portfolio">Portfolio</Link>
+              <Link to="/portfolio" onClick={() => setSidebar(false)} >Portfolio</Link>
             </li>
             <li>
-              <Link to="/contact">Contact Us</Link>
+              <Link to="/contact" onClick={() => setSidebar(false)} >Contact Us</Link>
             </li>
             <li>
-              <Link to="/about">About Us</Link>
+              <Link to="/about" onClick={() => setSidebar(false)} >About Us</Link>
             </li>
             <li>
               <Dropdown
