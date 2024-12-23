@@ -1,0 +1,50 @@
+.hire-product-managers-page {
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      background-color: #f4f4f4;
+      border-bottom: 1px solid #ddd;
+  
+      h1 {
+        font-size: 1.5rem;
+      }
+  
+      .close-icon {
+        cursor: pointer;
+      }
+    }
+  
+    .categories {
+      padding: 1rem;
+  
+      .category {
+        margin-bottom: 2rem;
+  
+        h2 {
+          font-size: 1.25rem;
+          margin-bottom: 0.5rem;
+        }
+  
+        ul {
+          list-style: none;
+          padding: 0;
+  
+          li {
+            margin: 0.25rem 0;
+  
+            a {
+              text-decoration: none;
+              color: #007bff;
+  
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

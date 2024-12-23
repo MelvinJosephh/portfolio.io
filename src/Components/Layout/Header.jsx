@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
 import Dropdown from "../Dropdown";
-import '../../Styles/layout/Header.scss'
+import "../../Styles/layout/Header.scss";
 import { data, descriptions } from "../../Models/hireTalentModel";
 import { industriesData } from "../../Models/industriesModel";
 import { servicesData } from "../../Models/servicesModel";
+import companiesData from "../../Assets/data/companiesData";
+import talentData from "../../Assets/data/talentData";
 
 const Header = () => {
   const [sidebar, setSidebar] = useState(false);
@@ -18,6 +20,30 @@ const Header = () => {
     <button className="primary-btn">
       <Link to={link}>{label}</Link>
     </button>
+  );
+
+  const renderCompaniesContent = (items) => (
+    <>
+      <div className="column">
+        {items.map((item) => (
+          <p key={item.name}>
+            <Link to={item.link}>{item.name}</Link>
+          </p>
+        ))}
+      </div>
+    </>
+  );
+
+  const renderTalentContent = (items) => (
+    <>
+      <div className="column">
+        {items.map((item) => (
+          <p key={item.name}>
+            <Link to={item.link}>{item.name}</Link>
+          </p>
+        ))}
+      </div>
+    </>
   );
 
   const renderIndustriesContent = (items) => (
@@ -45,7 +71,9 @@ const Header = () => {
       <div className="column">
         {items.engagementModels.map((service) => (
           <p key={service.title}>
-            <Link to={`/services/${service.title.toLowerCase().replace(/ /g, "-")}`}>
+            <Link
+              to={`/services/${service.title.toLowerCase().replace(/ /g, "-")}`}
+            >
               {service.title}
             </Link>
           </p>
@@ -54,7 +82,11 @@ const Header = () => {
       <div className="column">
         {items.categories.map((category) => (
           <p key={category.title}>
-            <Link to={`/services/${category.title.toLowerCase().replace(/ /g, "-")}`}>
+            <Link
+              to={`/services/${category.title
+                .toLowerCase()
+                .replace(/ /g, "-")}`}
+            >
               {category.title}
             </Link>
           </p>
@@ -107,41 +139,61 @@ const Header = () => {
           </Link>
         </div>
 
-        <div className={sidebar ? "nav-links-sidebar active" : "nav-links-sidebar"}>
+        <div
+          className={sidebar ? "nav-links-sidebar active" : "nav-links-sidebar"}
+        >
           <ul>
             <li>
               <Dropdown
-                title="Industries" onClick={() => setSidebar(false)}
+                title="For Companies"
+                items={companiesData}
+                renderContent={renderCompaniesContent}
+                onClose={() => setSidebar(false)} 
+              />
+            </li>
+
+            <li>
+              <Dropdown
+                title="For Talent"
+                onClick={() => setSidebar(false)}
+                items={talentData}
+                renderContent={renderTalentContent}
+              />
+            </li>
+
+            <li>
+              <Link to="/about" onClick={() => setSidebar(false)}>
+                What we do
+              </Link>
+            </li>
+            <li>
+              <Dropdown
+                title="Industries"
+                onClick={() => setSidebar(false)}
                 items={industriesData}
                 renderContent={renderIndustriesContent}
               />
             </li>
+
             <li>
               <Dropdown
-                title="Services" onClick={() => setSidebar(false)}
+                title="Services"
+                onClick={() => setSidebar(false)}
                 items={servicesData}
                 renderContent={renderContent}
               />
             </li>
+
             <li>
-              <Link to="/portfolio" onClick={() => setSidebar(false)} >Portfolio</Link>
-            </li>
-            <li>
-              <Link to="/contact" onClick={() => setSidebar(false)} >Contact Us</Link>
-            </li>
-            <li>
-              <Link to="/about" onClick={() => setSidebar(false)} >About Us</Link>
-            </li>
-            <li>
-              <Dropdown
-                title="Hire Talent"
-                renderContent={renderHireContent}
-              />
+              <Dropdown title="Hire Talent" renderContent={renderHireContent} />
             </li>
           </ul>
         </div>
 
-        <button className="navbar-items-icon" onClick={() => setSidebar(!sidebar)}>
+        <button
+          className="navbar-items-icon"
+          onClick={() => setSidebar(!sidebar)}
+        >
           {sidebar ? <CloseIcon /> : <MenuIcon />}
         </button>
       </div>

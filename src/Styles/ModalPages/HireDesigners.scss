@@ -1,0 +1,86 @@
+// src/Styles/pages/HireDesigners.scss
+
+.hire-designers-page {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+  
+      h1 {
+        font-size: 2.5rem;
+        color: #333;
+      }
+  
+      .close-icon {
+        font-size: 2.5rem;
+        cursor: pointer;
+        color: #333;
+        transition: color 0.3s;
+  
+        &:hover {
+          color: #ff4d4f; // Red color on hover
+        }
+      }
+    }
+  
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+  
+      .category {
+        flex: 1 1 300px;
+        background-color: #f9f9f9;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  
+        h2 {
+          font-size: 1.75rem;
+          color: #333;
+          margin-bottom: 15px;
+          border-bottom: 2px solid #007BFF;
+          padding-bottom: 5px;
+        }
+  
+        ul {
+          list-style-type: none;
+          padding: 0;
+  
+          li {
+            margin-bottom: 10px;
+  
+            a {
+              text-decoration: none;
+              color: #007BFF;
+              font-size: 1rem;
+              transition: color 0.3s;
+  
+              &:hover {
+                color: #0056b3;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hire-designers-page {
+      .categories {
+        flex-direction: column;
+  
+        .category {
+          flex: 1 1 100%;
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,73 @@
+.page {
+    padding: 2rem;
+  
+    .header-section {
+      text-align: center;
+      margin-bottom: 2rem;
+  
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+  
+      p {
+        font-size: 1.2rem;
+        color: #666;
+      }
+  
+      .cta-button {
+        padding: 0.8rem 1.5rem;
+        background: #0056b3;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+  
+        &:hover {
+          background: #004494;
+        }
+      }
+    }
+  
+    .job-categories,
+    .why-aberrange,
+    .how-it-works,
+    .testimonials {
+      margin-bottom: 2rem;
+  
+      h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+  
+      ul,
+      ol {
+        list-style: none;
+        padding: 0;
+  
+        li {
+          margin-bottom: 0.5rem;
+          font-size: 1.1rem;
+  
+          a {
+            text-decoration: none;
+            color: #0056b3;
+  
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  
+    .remote-jobs,
+    .cta-footer {
+      text-align: center;
+  
+      h2 {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+  
