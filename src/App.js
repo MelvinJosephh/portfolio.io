@@ -1,4 +1,6 @@
 import './App.css';
+
+import HireTalentFlow from './Components/HireTalent/HireTalentFlow.jsx';
 import Header from "./Components/Layout/Header.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Homepage from './Pages/Homepage';
@@ -30,12 +32,13 @@ function App() {
         <Routes>
           {/* Public Routes */}
           <Route path='/' element={<Homepage />} />
+          <Route path="/hire-talent/*" element={<HireTalentFlow />} />
           <Route path='/blogs' element={<Blogs />} />
           <Route path='/about' element={<WhatWeDo />} />
           <Route path='/portfolio' element={<Portfolio />} />
           <Route path='/services' element={<Services />} />
           <Route path='/contact' element={<Forms />} />
-          <Route path='/hire-talent' element={<Talent />} />
+          {/* <Route path='/hire-talent' element={<Talent />} /> */}
           <Route path='/industries' element={<Industries />} />
           <Route path='/hire-developers' element={<HireDevelopers/>} />
           <Route path='/hire-designers' element={<HireDesigners/>} />

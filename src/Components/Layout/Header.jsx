@@ -185,7 +185,10 @@ const Header = () => {
             </li>
 
             <li>
-              <Dropdown title="Hire Talent" renderContent={renderHireContent} />
+              {/* <Dropdown title="Hire Talent" renderContent={renderHireContent} /> */}
+              <Link to="/hire-talent/step1" onClick={() => setSidebar(false)}>
+              Hire Talent
+              </Link>
             </li>
           </ul>
         </div>
