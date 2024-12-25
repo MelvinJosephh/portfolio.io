@@ -1,7 +1,13 @@
 import React, { useState } from "react";
+import { useStepContext } from "../../../Context/StepContext.js";
 import StepTemplate from "../shared/StepTemplate";
+import {  StyledTextField } from "../../Shared/StyledComponents.jsx";
+import "../../../Styles/HireTalent/Step8Success.scss";
 
-const Step8Success = ({ onBack, onSubmit, startDate }) => {
+const Step8Success = ({ onBack, onSubmit }) => {
+  const { formData } = useStepContext();
+  const { startDate } = formData;
+
   const [contactInfo, setContactInfo] = useState({
     email: "",
     companyName: "",
@@ -34,63 +40,64 @@ const Step8Success = ({ onBack, onSubmit, startDate }) => {
   return (
     <StepTemplate
       title="Success! Let's connect you with talent."
-      options={[]} 
+      options={[]}
       onBack={onBack}
       isFinalStep={true}
     >
       <div className="form-container">
         <p className="form-description">
           Please provide your contact details below to connect with the best talent.
-          {startDate && <p>Start date: {startDate}</p>} {/* Display the start date if available */}
+          {startDate && <p>Start date: {startDate}</p>}
         </p>
         <form onSubmit={handleSubmit}>
           <div className="form-field">
-            <label htmlFor="email">Email Address:</label>
-            <input
+            <StyledTextField
+              label="Email Address"
               type="email"
               id="email"
               name="email"
               value={contactInfo.email}
               onChange={handleChange}
               required
+              fullWidth
             />
           </div>
           <div className="form-field">
-            <label htmlFor="companyName">Company Name:</label>
-            <input
+            <StyledTextField
+              label="Company Name"
               type="text"
               id="companyName"
               name="companyName"
               value={contactInfo.companyName}
               onChange={handleChange}
               required
+              fullWidth
             />
           </div>
           <div className="form-field">
-            <label htmlFor="contactName">Your Name:</label>
-            <input
+            <StyledTextField
+              label="Your Name"
               type="text"
               id="contactName"
               name="contactName"
               value={contactInfo.contactName}
               onChange={handleChange}
               required
+              fullWidth
             />
           </div>
           <div className="form-field">
-            <label htmlFor="phoneNumber">Phone Number:</label>
-            <input
+            <StyledTextField
+              label="Phone Number"
               type="tel"
               id="phoneNumber"
               name="phoneNumber"
               value={contactInfo.phoneNumber}
               onChange={handleChange}
               required
+              fullWidth
             />
           </div>
-          <button type="submit" className="submit-button">
-            Submit
-          </button>
         </form>
       </div>
     </StepTemplate>

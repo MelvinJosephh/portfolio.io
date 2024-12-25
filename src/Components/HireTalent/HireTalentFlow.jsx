@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import ProgressIndicator from "./shared/ProgressIndicator";
+import "../../Styles/HireTalent/HireTalent.scss";
+
+// Import step components dynamically
 import Step1WhoToHire from "../HireTalent/steps/Step1-WhoToHire";
 import Step2CompanySize from "../HireTalent/steps/Step2-CompanySize";
 import Step3ProjectType from "../HireTalent/steps/Step3-ProjectType";
@@ -8,66 +12,58 @@ import Step5Commitment from "../HireTalent/steps/Step5-Commitment";
 import Step6Skills from "../HireTalent/steps/Step6-Skills";
 import Step7StartDate from "../HireTalent/steps/Step7-StartDate";
 import Step8Success from "../HireTalent/steps/Step8-Success";
-import ProgressIndicator from "./shared/ProgressIndicator";
-import "../../Styles/HireTalent/HireTalent.scss";
+
+const steps = [
+  { path: "step1", component: Step1WhoToHire },
+  { path: "step2", component: Step2CompanySize },
+  { path: "step3", component: Step3ProjectType },
+  { path: "step4", component: Step4ProjectLength },
+  { path: "step5", component: Step5Commitment },
+  { path: "step6", component: Step6Skills },
+  { path: "step7", component: Step7StartDate },
+  { path: "step8", component: Step8Success },
+];
 
 const HireTalentFlow = () => {
   const navigate = useNavigate();
   const location = useLocation();
-
-  // Track the current step, starting at 1
-  const [currentStep, setCurrentStep] = useState(1);
   const [formState, setFormState] = useState({});
+  const [currentStep, setCurrentStep] = useState(1);
 
-  // Dynamically update current step from the path
+  // Derive current step from URL path
   React.useEffect(() => {
-    const path = location.pathname.split("/");
-    const step = parseInt(path[path.length - 1], 10);
+    const path = location.pathname.split("/").pop();
+    const step = parseInt(path.replace("step", ""), 10);
     if (!isNaN(step)) setCurrentStep(step);
-  }, [location.pathname]);
+  }, [location]);
 
+  // Navigation Handlers
   const handleNext = (data) => {
-    setFormState({ ...formState, ...data });
-    setCurrentStep((prevStep) => prevStep + 1);
+    setFormState((prevState) => ({ ...prevState, ...data }));
     navigate(`/hire-talent/step${currentStep + 1}`);
   };
 
   const handleBack = () => {
-    setCurrentStep((prevStep) => prevStep - 1);
     navigate(`/hire-talent/step${currentStep - 1}`);
   };
 
   return (
     <div className="hire-talent-flow">
-      {/* Pass currentStep and totalSteps to ProgressIndicator */}
-      <ProgressIndicator currentStep={currentStep} totalSteps={8} />
+      <ProgressIndicator currentStep={currentStep} totalSteps={steps.length} />
       <Routes>
-        <Route path="step1" element={<Step1WhoToHire onNext={handleNext} />} />
-        <Route
-          path="step2"
-          element={<Step2CompanySize onNext={handleNext} onBack={handleBack} />}
-        />
-        <Route
-          path="step3"
-          element={<Step3ProjectType onNext={handleNext} onBack={handleBack} />}
-        />
-        <Route
-          path="step4"
-          element={<Step4ProjectLength onNext={handleNext} onBack={handleBack} />}
-        />
-        <Route
-          path="step5"
-          element={<Step5Commitment onNext={handleNext} onBack={handleBack} />}
-        />
-        <Route
-          path="step6"
-          element={<Step6Skills onNext={handleNext} onBack={handleBack} />}
-        />
-        <Route
-          path="step7"
-          element={<Step7StartDate onNext={handleNext} onBack={handleBack} />}
-        />
-        <Route path="step8" element={<Step8Success formState={formState} />} />
+        {steps.map((step, index) => (
+          <Route
+            key={index}
+            path={step.path}
+            element={
+              <step.component
+                onNext={handleNext}
+                onBack={index > 0 ? handleBack : undefined}
+                formState={formState}
+              />
+            }
+          />
+        ))}
       </Routes>
     </div>
   );

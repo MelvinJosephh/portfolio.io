@@ -1,24 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
+import { useStepContext } from "../../../Context/StepContext.js";
 import StepTemplate from "../shared/StepTemplate";
 
 const Step1WhoToHire = ({ onNext }) => {
-  console.log('Step 1 rendered');
-  const options = ["Developer", "Designer", "Project Manager", "Product Manager"];
-  const [selectedOption, setSelectedOption] = useState("");
-
-  const handleNext = () => {
-    if (selectedOption) {
-      onNext({ hire: selectedOption });
-    }
-  };
+  const { formData, updateStepData } = useStepContext();
 
   return (
     <StepTemplate
       title="Who would you like to hire?"
-      options={options}
-      selectedOption={selectedOption}
-      setSelectedOption={setSelectedOption}
-      onNext={handleNext}
+      isFirst={true} 
+      options={["Developer", "Designer", "Project Manager", "Product Manager"]}
+      selectedOption={formData.hire}
+      setSelectedOption={(value) => updateStepData("hire", value)}
+      onNext={onNext}
     />
   );
 };

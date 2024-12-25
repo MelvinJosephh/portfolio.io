@@ -8,7 +8,6 @@ import Blogs from './Components/Blogs';
 import Services from './Components/Services';
 import Footer from "./Components/Layout/Footer.jsx";
 import Forms from "./Components/contactUs"
-import Talent from './Pages/Hire-Talent.jsx';
 import Industries from './Pages/Industries.jsx';
 import Portfolio from './Pages/Portfolio.jsx';
 import FullBlog from './Components/FullBlog.jsx';
@@ -24,10 +23,13 @@ import FindWork from './Components/ModalPages/FindWork.jsx';
 import WhatWeDo from './Components/WhatWeDo.jsx';
 
 
+import { StepProvider  } from './Context/StepContext.js';
+
 function App() {
   return (
     <>
       <Router>
+        <StepProvider >
         <Header />
         <Routes>
           {/* Public Routes */}
@@ -52,6 +54,7 @@ function App() {
           <Route path="/blogs/:permalink" element={<FullBlog />} />
         </Routes>
         <Footer />  
+        </StepProvider >
       </Router>
     </>
   );

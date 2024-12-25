@@ -1,18 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
+import { useStepContext } from "../../../Context/StepContext.js"; 
 import StepTemplate from "../shared/StepTemplate";
 
 const Step5Commitment = ({ onNext, onBack }) => {
+  const { formData, updateStepData } = useStepContext(); 
+
   const options = [
     "Full-time",
     "Part-time",
     "Contract",
     "Hourly/Project-based"
   ];
-  const [selectedOption, setSelectedOption] = useState("");
+
+  const selectedOption = formData.commitment; 
 
   const handleNext = () => {
     if (selectedOption) {
-      onNext({ commitment: selectedOption });
+      updateStepData("commitment", selectedOption);
+      onNext();
     }
   };
 
@@ -21,7 +26,7 @@ const Step5Commitment = ({ onNext, onBack }) => {
       title="What level of commitment will you require from the developer?"
       options={options}
       selectedOption={selectedOption}
-      setSelectedOption={setSelectedOption}
+      setSelectedOption={(value) => updateStepData("commitment", value)} 
       onNext={handleNext}
       onBack={onBack}
     />

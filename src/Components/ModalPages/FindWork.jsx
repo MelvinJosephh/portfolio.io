@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../Styles/ModalPages/FindandOverview.scss';
-import categories from '../../Assets/data/skills/developersData'; 
+import categories from '../../Assets/data/skills/developersData';
 
 const FindWork = () => {
   return (
@@ -18,7 +18,9 @@ const FindWork = () => {
         <ul>
           {categories.map((category, index) => (
             <li key={index}>
-              <a href={`#${category.title.replace(/ /g, '-').toLowerCase()}`}>{category.title}</a>
+              <a href={`#${category.title.replace(/ /g, '-').toLowerCase()}`}>
+                {category.title}
+              </a>
             </li>
           ))}
         </ul>

@@ -1,5 +1,7 @@
+
+import "../../../Styles/HireTalent/StepTemplate.scss"
 import React from "react";
-import "../../../Styles/HireTalent/StepTemplate.scss";
+import { StyledButton } from "../../Shared/StyledComponents.jsx"; // You can remove StyledButton import if it's not needed anymore
 
 const StepTemplate = ({
   title,
@@ -8,35 +10,56 @@ const StepTemplate = ({
   setSelectedOption,
   onNext,
   onBack,
-  children,
+  isFirst = false, 
+  isFinalStep = false,
+  showSkipButton = false,
+  children, // Step content like forms
 }) => {
   return (
     <div className="step-template">
       <h2>{title}</h2>
 
-      {/* Only render the options list if options are provided */}
-      {options && options.length > 0 ? (
+      {/* Render options as a clickable list */}
+      {options.length > 0 && (
         <ul>
-          {options.map((option) => (
+          {options.map((option, index) => (
             <li
-              key={option}
-              className={selectedOption === option ? "selected" : ""}
+              key={index}
               onClick={() => setSelectedOption(option)}
+              className={selectedOption === option ? "selected" : ""}
             >
               {option}
             </li>
           ))}
         </ul>
-      ) : (
-        children 
       )}
+      
+      {/* Render Step content */}
+      <div className="step-content">
+        {children}
+      </div>
 
+      {/* Conditionally render the Back button (only if not the first step) */}
       <div className="actions">
-        {/* Render the Back button only if onBack exists */}
-        {onBack && <button onClick={onBack}>Back</button>}
-        <button onClick={onNext} disabled={!selectedOption}>
-          Next
-        </button>
+        {!isFirst && (
+          <StyledButton onClick={onBack} className="back-button">
+            Back
+          </StyledButton>
+        )}
+        {!isFinalStep ? (
+          <StyledButton onClick={onNext} className="next-button">
+            Next
+          </StyledButton>
+        ) : (
+          <StyledButton onClick={onNext} className="submit-button">
+            Submit
+          </StyledButton>
+        )}
+        {showSkipButton && !isFinalStep && (
+          <StyledButton onClick={() => onNext({})} className="skip-button">
+            Skip
+          </StyledButton>
+        )}
       </div>
     </div>
   );

@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
+import { useStepContext } from "../../../Context/StepContext.js"; 
 import StepTemplate from "../shared/StepTemplate";
 
 const Step6Skills = ({ onNext, onBack }) => {
+  const { formData, updateStepData } = useStepContext(); 
+
   const skills = [
     "JavaScript",
     "Python",
@@ -15,18 +18,18 @@ const Step6Skills = ({ onNext, onBack }) => {
     "Mobile Development"
   ];
 
-  const [selectedSkills, setSelectedSkills] = useState([]);
+  const selectedSkills = formData.skills; 
 
   const handleSkillToggle = (skill) => {
-    setSelectedSkills((prevSelectedSkills) =>
-      prevSelectedSkills.includes(skill)
-        ? prevSelectedSkills.filter((item) => item !== skill)
-        : [...prevSelectedSkills, skill]
-    );
+    const newSkills = selectedSkills.includes(skill)
+      ? selectedSkills.filter((item) => item !== skill)
+      : [...selectedSkills, skill];
+
+    updateStepData("skills", newSkills); 
   };
 
   const handleNext = () => {
-    onNext({ skills: selectedSkills });
+    onNext(); 
   };
 
   return (
@@ -34,7 +37,7 @@ const Step6Skills = ({ onNext, onBack }) => {
       title="What skills would you like to see in your new hire?"
       options={skills}
       selectedOption={selectedSkills}
-      setSelectedOption={handleSkillToggle}
+      setSelectedOption={handleSkillToggle} 
       isMultiSelect={true}
       onNext={handleNext}
       onBack={onBack}
