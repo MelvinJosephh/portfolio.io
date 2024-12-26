@@ -4,7 +4,7 @@ import "../../Styles/layout/Footer.scss";
 const Footer = () => {
   return (
     <footer>
-      <div className="footer-container">
+      <section className="footer-container">
         <div className="box">
           <p>Connect with me and get the best for your firm</p>
           <div className="socialIcons">
@@ -16,6 +16,7 @@ const Footer = () => {
             <i className="fab fa-dribbble"></i>
           </div>
         </div>
+
         <div className="box">
           <h2>Quick Links</h2>
           <ul>
@@ -27,21 +28,23 @@ const Footer = () => {
             <li>FAQ's</li>
           </ul>
         </div>
+
         <div className="box">
           <h2>Recent Posts</h2>
-          <div className="text">
+          <div className="post">
             <p>Why Bill Gates Visits Kenya</p>
             <span>28 Feb 2022</span>
           </div>
-          <div className="text">
+          <div className="post">
             <p>Why Bill Gates Visits Kenya</p>
             <span>28 Feb 2022</span>
           </div>
-          <div className="text">
+          <div className="post">
             <p>Why Bill Gates Visits Kenya</p>
             <span>28 Feb 2022</span>
           </div>
         </div>
+
         <div className="box">
           <h2>Get in Touch</h2>
           <div className="icon">
@@ -57,13 +60,14 @@ const Footer = () => {
             <label>Email: Essayacademy@gmail.com</label>
           </div>
         </div>
-      </div>
-      <div className="legal">
+      </section>
+
+      <section className="legal">
         <p>Copyright @2023. All rights reserved.</p>
         <label>
           Designed and Developed by <span>MelvinDev</span>
         </label>
-      </div>
+      </section>
     </footer>
   );
 };

@@ -1,3 +1,5 @@
+@import '../mixins.scss'; 
+
 /* Footer Styling */
 footer {
   background-color: #333;
@@ -7,9 +9,7 @@ footer {
   box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
 
   .footer-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns by default */
-    gap: 40px;
+    @include grid-layout(4, 40px); 
     width: 90%;
     max-width: 1480px;
     margin: 0 auto;
@@ -19,38 +19,46 @@ footer {
   .box {
     padding: 10px;
     text-align: left;
-  }
-
-  h2 {
-    margin-bottom: 15px;
-  }
-
-  .socialIcons {
     display: flex;
-    justify-content: center;
-    gap: 15px;
-    i {
-      font-size: 1.5rem;
-      transition: color 0.3s;
-      cursor: pointer;
-      &:hover {
-        color: #f4a261; /* Example color on hover */
+    flex-direction: column;
+    gap: 10px;
+
+    h2 {
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      li {
+        margin-bottom: 10px;
       }
     }
-  }
 
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 20px;
+    .socialIcons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      i {
+        font-size: 1.5rem;
+        transition: color 0.3s;
+        cursor: pointer;
+        &:hover {
+          color: #f4a261;
+        }
+      }
+    }
 
-    a {
-      color: #fff;
-      font-weight: bold;
-      transition: color 0.3s ease;
-      &:hover {
-        color: #f4a261;
+    .icon {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      i {
+        font-size: 1.2rem;
+      }
+      label {
+        font-size: 1rem;
       }
     }
   }
@@ -59,61 +67,65 @@ footer {
     margin-top: 30px;
     font-size: 0.8rem;
     color: #ccc;
-    @media (max-width: 576px) {
-      font-size: 1rem;
-    }
 
     span {
       font-weight: bold;
       color: #f4a261;
     }
   }
-}
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  footer {
-    padding: 60px 0;
-  }
+  /* Responsive Adjustments - Tablets (max-width: 768px) */
+  @include respond-to(md) {
+    footer {
+      padding: 60px 0;
+    }
 
-  .footer-container {
-    grid-template-columns: 1fr 1fr; /* Stack into 2 columns on tablet */
-  }
+    .footer-container {
+      @include grid-layout(2, 1fr); 
+    }
 
-  .socialIcons {
-    justify-content: center;
-    i {
-      font-size: 1.3rem;
+    .socialIcons {
+      justify-content: center;
+      gap: 10px;
+      i {
+        font-size: 1.3rem;
+      }
+    }
+
+    .legal {
+      font-size: 1rem;
+    }
+
+    .box {
+      text-align: center;
+      
     }
   }
 
-  .legal {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  footer {
-    padding: 40px 0;
-  }
-
-  .footer-container {
-    grid-template-columns: 1fr; /* Stack all items vertically on mobile */
-    gap: 30px;
-  }
-
-  .box {
-    text-align: center; /* Center-align text for mobile */
-  }
-
-  .socialIcons {
-    gap: 10px;
-    i {
-      font-size: 1.25rem; /* Smaller icons */
+  /* Responsive Adjustments - Mobile (max-width: 480px) */
+  @include respond-to(xs) {
+    footer {
+      padding: 40px 0;
     }
-  }
 
-  .legal {
-    font-size: 1rem;
+    .footer-container {
+      @include grid-layout(1, 1fr); 
+    }
+
+    .box {
+      
+      text-align: center; /* Center content for better readability on mobile */
+    }
+
+    .socialIcons {
+      gap: 10px;
+      i {
+        font-size: 1.25rem; /* Adjust icon size on mobile */
+      }
+    }
+
+    .legal {
+      font-size: 1rem;
+    }
   }
 }

@@ -1,31 +1,33 @@
-/* mixins.scss */
 @mixin flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin grid-layout($columns, $gap: var(--spacing-medium)) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == xs {
+    @media (max-width: var(--breakpoint-xs)) { @content; }
+  } @else if $breakpoint == sm {
+    @media (max-width: var(--breakpoint-sm)) { @content; }
+  } @else if $breakpoint == md {
+    @media (max-width: var(--breakpoint-md)) { @content; }
+  } @else if $breakpoint == lg {
+    @media (max-width: var(--breakpoint-lg)) { @content; }
   }
-  
-  @mixin flex-column {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  @mixin box-shadow($color, $blur) {
-    box-shadow: 0 4px 8px rgba($color, 0.3), 0 1px 2px rgba($color, 0.2);
-  }
-  
-  @mixin grid-layout($columns, $gap: 20px) {
-    display: grid;
-    grid-template-columns: repeat($columns, 1fr);
-    grid-gap: $gap;
-  }
-  
-  @mixin media-query($size) {
-    @if $size == 'small' {
-      @media (max-width: 768px) { @content; }
-    }
-    @else if $size == 'large' {
-      @media (min-width: 1200px) { @content; }
-    }
-  }
-  
+}
