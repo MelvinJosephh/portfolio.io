@@ -1,17 +1,30 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../../Styles/ModalPages/FindandOverview.scss';
 import categories from '../../Assets/data/skills/developersData';
 
 const FindWork = () => {
+  const navigate = useNavigate();
+
+  const handleProfileCreation = () => {
+    navigate('/register'); // Navigate to Freelancer Registration Form
+  };
+
+  const handleBrowseJobs = () => {
+    navigate('/jobs'); // Navigate to Job Listings Page
+  };
+
+
   return (
     <div className="find-work-page">
-      <header className="header-section">
-        <h1>Find Freelance Jobs You Love</h1>
-        <p>
-          Browse jobs posted at Aberrange, or create your free profile and get started immediately.
-        </p>
-        <button className="cta-button">Find Work</button>
-      </header>
+     <header className="header-section">
+  <h1>Find Freelance Jobs You Love</h1>
+  <p>
+    Get access to exclusive freelance opportunities from top-tier companies. Create your free profile and get started today!
+  </p>
+  <button className="cta-button" onClick={handleProfileCreation}>Create Your Profile & Start Today</button>
+</header>
+
 
       <section className="job-categories">
         <h2>Explore Jobs by Category</h2>
@@ -31,7 +44,7 @@ const FindWork = () => {
         <p>
           Work from anywhere with Aberrange. Explore top-tier remote job opportunities tailored to your expertise.
         </p>
-        <button className="cta-button">Browse Remote Jobs</button>
+        <button className="cta-button" onClick={handleBrowseJobs}>Browse Remote Jobs</button>
       </section>
     </div>
   );

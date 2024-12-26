@@ -20,7 +20,14 @@ import HireProjectManagers from './Components/ModalPages/ProjectManagers.jsx';
 import HireDesigners from './Components/ModalPages/HireDesigners.jsx';
 import Overview from './Components/ModalPages/Overview.jsx';
 import FindWork from './Components/ModalPages/FindWork.jsx';
+import JobListings  from './Components/Freelancers/JobListings.jsx';
+import ConfirmationPage  from './Components/Freelancers/ConfirmationPage';
+import ApplicationForm  from './Components/Freelancers/ApplicationForm';
+import JobDetails  from './Components/Freelancers/JobDetails';
+import FreelancerRegistration from './Components/Freelancers/Registration.jsx';
 import WhatWeDo from './Components/WhatWeDo.jsx';
+
+
 
 
 import { StepProvider  } from './Context/StepContext.js';
@@ -40,7 +47,6 @@ function App() {
           <Route path='/portfolio' element={<Portfolio />} />
           <Route path='/services' element={<Services />} />
           <Route path='/contact' element={<Forms />} />
-          {/* <Route path='/hire-talent' element={<Talent />} /> */}
           <Route path='/industries' element={<Industries />} />
           <Route path='/hire-developers' element={<HireDevelopers/>} />
           <Route path='/hire-designers' element={<HireDesigners/>} />
@@ -50,8 +56,16 @@ function App() {
           <Route path='/how-it-works' element={<HowAberrangeWorks/>} />
           <Route path='/pricing' element={<PricingPage/>} />
           <Route path='/find-work' element={<FindWork/>} />
+          <Route path="/jobs" element={<JobListings />} />
+          <Route path='/register' element={<FreelancerRegistration/>} />
           <Route path='/overview' element={<Overview/>} />
           <Route path="/blogs/:permalink" element={<FullBlog />} />
+          <Route path="/confirmation" element={<ConfirmationPage />} />
+          <Route path="/job-details/:jobId" element={<JobDetails />} />
+          <Route path="/apply/:jobId" element={<ApplicationForm />} />
+         
+          
+
         </Routes>
         <Footer />  
         </StepProvider >
