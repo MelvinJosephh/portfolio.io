@@ -1,6 +1,6 @@
-/* global.scss */
-@import './variable.scss'; 
+@import './variable.scss';
 
+/* General Container */
 .container {
   width: 90%;
   max-width: 1480px !important;
@@ -10,28 +10,32 @@
   position: relative;
 }
 
+/* Image Styling */
 .img img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
 }
 
+/* Flex Layout */
 .flex {
   @include flex-center;
   justify-content: space-between;
   gap: 20px;
 }
 
+/* List Styling */
 ul {
   list-style: none;
 }
 
+/* Anchor Styling */
 a {
   text-decoration: none;
   color: var(--text-color);
 }
 
-/* Content shift when sidebar is active */
+/* Main Content Shift for Sidebar */
 .main-content {
   margin-left: 0;
   transition: margin-left 0.3s ease;
@@ -41,12 +45,13 @@ a {
   margin-left: 200px;
 }
 
-/* Overall SPA styling */
+/* Left and Right Layout */
 .left, .right {
   width: 50%;
   position: relative;
 }
 
+/* Home Section */
 .home {
   height: 90vh;
   display: flex;
@@ -82,9 +87,9 @@ a {
 /* Global Button Styles */
 button, .primary-btn {
   border: none;
-  padding: 10px 20px;  /* Reduced padding for a smaller button */
+  padding: 10px 20px;  /* Base padding for normal-sized screens */
   border-radius: 5px;
-  font-size: 0.9rem;    /* Slightly smaller base font size */
+  font-size: 0.9rem;    /* Base font size */
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -102,23 +107,118 @@ button, .primary-btn {
   }
 
   /* Responsive button adjustments */
-  @media (max-width: 480px) {
-    font-size: 1rem;    /* Slightly larger font on mobile for better readability */
-    padding: 8px 16px;  /* Smaller button padding on mobile */
+  @media (max-width: var(--breakpoint-mobile-s)) {
+    font-size: 1rem;
+    padding: 8px 16px;
   }
 
-  @media (min-width: 768px) {
-    font-size: 1.1rem;  /* Slightly smaller font for tablet */
-    padding: 10px 20px; /* Adjust padding for medium screens */
+  @media (min-width: var(--breakpoint-mobile-m)) and (max-width: var(--breakpoint-mobile-l)) {
+    font-size: 1.05rem;
+    padding: 9px 18px;
   }
 
-  @media (min-width: 1024px) {
-    font-size: 1.2rem;  /* Slightly larger font for desktop */
-    padding: 12px 24px; /* Adjust padding for desktop */
+  @media (min-width: var(--breakpoint-tablet)) and (max-width: var(--breakpoint-laptop)) {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+  }
+
+  @media (min-width: var(--breakpoint-laptop)) and (max-width: var(--breakpoint-laptop-l)) {
+    font-size: 1.15rem;
+    padding: 12px 24px;
+  }
+
+  @media (min-width: var(--breakpoint-4k)) {
+    font-size: 1.25rem;
+    padding: 15px 30px;
   }
 }
 
-@media screen and (max-width: 768px) {
+/* Media Queries for Layout Adjustments */
+
+/* Mobile Small */
+@media screen and (max-width: var(--breakpoint-mobile-s)) {
+  .flex {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .container {
+    width: 95%;
+  }
+
+  .left, .right {
+    width: 100%;
+  }
+
+  .home {
+    height: 100vh;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .branding h1 {
+    font-size: 22px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .about .container, .services .grid, .footer .grid1 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Mobile Medium */
+@media screen and (max-width: var(--breakpoint-mobile-m)) {
+  .home p {
+    font-size: 1.1rem;
+  }
+
+  .branding h1 {
+    font-size: 24px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .left, .right {
+    width: 100%;
+  }
+
+  .footer .grid1 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile Large */
+@media screen and (max-width: var(--breakpoint-mobile-l)) {
+  .home p {
+    font-size: 1.2rem;
+  }
+
+  .branding h1 {
+    font-size: 26px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+
+  .footer .grid1 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tablet (768px) */
+@media screen and (max-width: var(--breakpoint-tablet)) {
   .flex {
     flex-direction: column;
     gap: 20px;
@@ -132,64 +232,85 @@ button, .primary-btn {
     font-size: 28px;
   }
 
-  .left, .right {
-    width: 100%;
-  }
-
-  .home .container {
-    flex-direction: column;
-    flex-direction: column-reverse;
-  }
-
   .home {
-    height: 134vh;
-  }
-
-  .branding .grid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 30px;
+    height: 120vh;
   }
 
   .grid {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
   }
 
-  .about .container {
-    flex-direction: column;
-  }
-
-  .about .img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-  }
-
-  .about .img::after {
-    display: none;
-  }
-
-  .services .grid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 30px;
-  }
-
-  .wrapper .container {
-    max-width: 80%;
-  }
-
-  .skill .right {
-    padding: 0;
-  }
-
-  footer .grid1 {
+  .footer .grid1 {
     grid-template-columns: repeat(2, 1fr);
   }
+}
 
-  .grid1 {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 30px;
+/* Laptop (1024px) */
+@media screen and (max-width: var(--breakpoint-laptop)) {
+  .flex {
+    gap: 30px;
+  }
+
+  .container {
+    width: 90%;
+  }
+
+  .home {
+    height: 90vh;
+    flex-direction: column-reverse;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .footer .grid1 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Laptop Large (1440px) */
+@media screen and (max-width: var(--breakpoint-laptop-l)) {
+  .flex {
+    gap: 40px;
+  }
+
+  .container {
+    width: 85%;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .footer .grid1 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 4K Screens */
+@media screen and (min-width: var(--breakpoint-4k)) {
+  .flex {
+    gap: 50px;
+  }
+
+  .container {
+    width: 80%;
+  }
+
+  .home {
+    height: 90vh;
+  }
+
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+
+  .footer .grid1 {
+    grid-template-columns: repeat(4, 1fr);
   }
 }

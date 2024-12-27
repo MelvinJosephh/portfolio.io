@@ -5,9 +5,9 @@ import brandingData from '../../Assets/data/BrandingData';
 const Branding = () => {
   return (
     <section className="branding">
-      <div className="container grid">
+      <div className="branding-container">
         {brandingData.map((value) => (
-          <div className="box flex" key={value.id}>
+          <div className="box" key={value.id}>
             <div className="text">
               <h1>{value.id}</h1>
             </div>
