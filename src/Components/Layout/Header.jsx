@@ -48,23 +48,31 @@ const Header = () => {
 
   const renderIndustriesContent = (items) => (
     <>
-      <div className="column">
-        {items.industries.map((industry) => (
-          <p key={industry}>{industry}</p>
-        ))}
-      </div>
-      <div className="column">
-        {items.actions.map((action) => (
-          <p key={action.name}>
-            <Link to={action.link}>{action.name}</Link>
-          </p>
-        ))}
-      </div>
-      <div className="column">
-        {unifiedButton(items.button.label, items.button.link)}
+      <div className="scrollable-content">
+        {/* Industries Column */}
+        {/* <div className="column">
+          {items.industries.map((industry) => (
+            <p key={industry}>
+              <Link to={`/industries`}>{industry}</Link>
+            </p>
+          ))}
+        </div> */}
+  
+        {/* Actions and Button Column */}
+        <div className="column">
+          {items.actions.map((action) => (
+            <p key={action.name}>
+              <Link to={action.link}>{action.name}</Link>
+            </p>
+          ))}
+          {unifiedButton(items.button.label, items.button.link)}
+        </div>
       </div>
     </>
   );
+  
+  
+  
 
   const renderContent = (items) => (
     <>
@@ -125,7 +133,7 @@ const Header = () => {
       <div className="column">
         <h3>{selectedDeveloper || selectedArea} Developer</h3>
         <p>{descriptions[selectedArea]}</p>
-        {unifiedButton(`Hire ${selectedDeveloper || selectedArea}`, "/hire")}
+        {unifiedButton(`Hire ${selectedDeveloper || selectedArea}`, "/hire-talent/step2")}
       </div>
     </>
   );
@@ -185,10 +193,18 @@ const Header = () => {
             </li>
 
             <li>
-              {/* <Dropdown title="Hire Talent" renderContent={renderHireContent} /> */}
-              <Link to="/hire-talent/step1" onClick={() => setSidebar(false)}>
+
+            <Dropdown
+                title="Hire Talent"
+                onClick={() => setSidebar(false)}
+                items={industriesData}
+                renderContent={renderHireContent}
+              />
+
+              
+              {/* <Link to="/hire-talent/step1" onClick={() => setSidebar(false)}>
               Hire Talent
-              </Link>
+              </Link> */}
             </li>
           </ul>
         </div>

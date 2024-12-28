@@ -9,8 +9,8 @@ export const industriesData = {
       "Retail",
     ],
     actions: [
-      { name: "Let’s grow together", link: "/grow-together" },
-      { name: "Partner with us", link: "/partner" },
+      { name: "Let’s grow together", link: "/industries" },
+      
     ],
     button: { label: "Get Quote", link: "/get-quote" },
   };
