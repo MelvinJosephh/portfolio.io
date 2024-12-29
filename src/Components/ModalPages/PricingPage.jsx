@@ -11,7 +11,7 @@ const PricingPage = () => {
       </header>
 
       <section className="pricing-container">
-        <div className="pricing-tiers">
+        <div className="grid-layout">
           {pricingPlans.map((plan, index) => (
             <div key={index} className="pricing-card">
               <h2>{plan.title}</h2>
