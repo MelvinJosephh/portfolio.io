@@ -2,7 +2,6 @@ import React from "react";
 import '../Styles/components/About.scss';
 import whatWeDoData from "../Assets/data/AboutData";
 
-
 const WhatWeDo = () => {
   return (
     <div className="what-we-do">
@@ -57,6 +56,7 @@ const WhatWeDo = () => {
       <section className="call-to-action">
         <h2>{whatWeDoData.callToAction.title}</h2>
         <p>{whatWeDoData.callToAction.description}</p>
+        <button>Get Started</button>
       </section>
     </div>
   );
