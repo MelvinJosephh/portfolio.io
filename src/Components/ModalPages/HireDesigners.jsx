@@ -20,7 +20,7 @@ const HireDesigners = () => {
   return (
     <div className="hire-designers-page">
       <div className="categories">
-        <div className="header">
+        <div className="header-section">
           <h1>Hire Designers</h1>
           <CloseIcon className="close-icon" onClick={closePage} />
         </div>

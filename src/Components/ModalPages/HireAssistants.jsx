@@ -19,7 +19,7 @@ const HireAssistants = () => {
 
   return (
     <div className="hire-assistants-page">
-      <div className="header">
+      <div className="header-section">
         <h1>Hire Assistants</h1>
         <CloseIcon className="close-icon" onClick={closePage} />
       </div>

@@ -21,13 +21,17 @@ const Dropdown = ({ title, items = [], renderContent, onClose }) => {
 
   const toggleDropdown = () => setIsOpen((prev) => !prev);
 
+  const handleLinkClick = () => {
+    setIsOpen(false);  // Close the dropdown when a link is clicked
+  };
+
   return (
     <li className="dropdown-wrapper" ref={dropdownRef}>
       <a href="#" onClick={(e) => { e.preventDefault(); toggleDropdown(); }}>
         {title}
       </a>
       {isOpen && (
-        <div className="dropdown-content">
+        <div className={`dropdown-content ${isOpen ? "open" : ""}`}>
           {renderContent ? renderContent(items) : (
             <div className="dropdown-sections">
               {items.map(({ title, items }, idx) => (
@@ -36,7 +40,7 @@ const Dropdown = ({ title, items = [], renderContent, onClose }) => {
                   <ul className={items.length ? "simple-list" : "subcategory-list"}>
                     {items.map(({ label, link }, itemIdx) => (
                       <li key={itemIdx} className="subcategory-item">
-                        <Link to={link}>{label}</Link>
+                        <Link to={link} onClick={handleLinkClick}>{label}</Link>
                       </li>
                     ))}
                   </ul>

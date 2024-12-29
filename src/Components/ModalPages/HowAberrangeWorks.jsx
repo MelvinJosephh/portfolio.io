@@ -16,7 +16,7 @@ const HowAberrangeWorks = () => {
 
   return (
     <div className="how-aberrange-works-page">
-      <div className="header">
+      <div className="header-section">
         <h1>How Aberrange Works</h1>
         <CloseIcon className="close-icon" onClick={closePage} />
       </div>

@@ -1,4 +1,3 @@
-
 .dropdown-wrapper {
   position: relative;
   z-index: 1000;
@@ -37,6 +36,48 @@
       width: 95%;
       padding: 10px;
       grid-template-columns: 1fr; 
+    
+    }
+  }
+
+  /* Ensure dropdown stays visible across all specified breakpoints */
+  @media (max-width: var(--breakpoint-mobile-s)) {
+    .dropdown-content {
+      top: 60px;
+      left: 5%;
+      width: 90%;
+    }
+  }
+
+  @media (max-width: var(--breakpoint-mobile-m)) {
+    .dropdown-content {
+      top: 60px;
+      left: 5%;
+      width: 90%;
+    }
+  }
+
+  @media (max-width: var(--breakpoint-mobile-l)) {
+    .dropdown-content {
+      top: 60px;
+      left: 5%;
+      width: 90%;
+    }
+  }
+
+  @media (max-width: var(--breakpoint-tablet)) {
+    .dropdown-content {
+      top: 80px;
+      left: 5%;
+      width: 80%;
+    }
+  }
+
+  @media (min-width: var(--breakpoint-laptop)) {
+    .dropdown-content {
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 }

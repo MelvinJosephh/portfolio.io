@@ -10,114 +10,101 @@ import { industriesData } from "../../Models/industriesModel";
 import { servicesData } from "../../Models/servicesModel";
 import companiesData from "../../Assets/data/companiesData";
 import talentData from "../../Assets/data/talentData";
-import { useSidebar } from "../Layout/useSidebar";  
+import { useSidebar } from "../Layout/useSidebar";
 
 const Header = () => {
-  const { sidebar, toggleSidebar } = useSidebar(); // Using custom hook for sidebar state
+  const { sidebar, toggleSidebar } = useSidebar();
   const [selectedDeveloper, setSelectedDeveloper] = useState(null);
   const [selectedArea, setSelectedArea] = useState("Frontend");
+  const [showDevAndButton, setShowDevAndButton] = useState(false);
 
-  // Render content dynamically
-  const renderCompaniesContent = (items) => renderContent(items, 'companies');
-  const renderTalentContent = (items) => renderContent(items, 'talent');
-  const renderIndustriesContent = (items) => (
-    <>
-      <div className="scrollable-content">
-        {/* Industries Column */}
-        {/* <div className="column">
-          {items.industries.map((industry) => (
-            <p key={industry}>
-              <Link to={`/industries`}>{industry}</Link>
-            </p>
-          ))}
-        </div> */}
-  
-        {/* Actions and Button Column */}
-        <div className="column">
-          {items.actions.map((action) => (
-            <p key={action.name}>
-              <Link to={action.link}>{action.name}</Link>
-            </p>
-          ))}
-          {unifiedButton(items.button.label, items.button.link)}
-        </div>
-      </div>
-    </>
-  );
-  const renderServicesContent = (items) => (
-    <>
-      <div className="column">
-        {items.engagementModels.map((service) => (
-          <p key={service.title}>
-            <Link
-              to={`/services/${service.title.toLowerCase().replace(/ /g, "-")}`}
-            >
-              {service.title}
-            </Link>
-          </p>
-        ))}
-      </div>
-      <div className="column">
-        {items.categories.map((category) => (
-          <p key={category.title}>
-            <Link
-              to={`/services/${category.title
-                .toLowerCase()
-                .replace(/ /g, "-")}`}
-            >
-              {category.title}
-            </Link>
-          </p>
-        ))}
-      </div>
-      <div className="column">
-        {unifiedButton("View All Services", "/services")}
-      </div>
-    </>
-  );
-
-  
-  const renderHireContent = () => (
-    <>
-      <div className="column">
-        {Object.keys(data).map((area) => (
-          <p
-            key={area}
-            className={selectedArea === area ? "active" : ""}
-            onClick={() => setSelectedArea(area)}
-          >
-            {area}
-          </p>
-        ))}
-      </div>
-      <div className="column">
-        {data[selectedArea]?.map((dev) => (
-          <p
-            key={dev}
-            onClick={() => setSelectedDeveloper(dev)}
-            className={selectedDeveloper === dev ? "active" : ""}
-          >
-            {dev}
-          </p>
-        ))}
-      </div>
-      <div className="column">
-        <h3>{selectedDeveloper || selectedArea} Developer</h3>
-        <p>{descriptions[selectedArea]}</p>
-        {unifiedButton(`Hire ${selectedDeveloper || selectedArea}`, "/hire-talent/step2")}
-      </div>
-    </>
-  );
-
-
-  // Unified button rendering for consistent styling
+  // Unified button rendering
   const unifiedButton = (label, link) => (
     <button className="primary-btn">
       <Link to={link}>{label}</Link>
     </button>
   );
 
-  // Common render function to handle content display for various categories
+  // Render Hire Content with toggle behavior for mobile/tablet
+  const renderHireContent = () => (
+    <div className="column">
+      {/* Show the area list only if no developer is selected */}
+      {!showDevAndButton ? (
+        Object.keys(data).map((area) => (
+          <p
+            key={area}
+            className={selectedArea === area ? "active" : ""}
+            onClick={() => {
+              setSelectedArea(area);
+              setShowDevAndButton(true); // Show developer and button when an area is clicked
+            }}
+          >
+            {area}
+          </p>
+        ))
+      ) : (
+        <>
+          {/* Replace area with the selected developer and the button */}
+          <div className="column">
+            {data[selectedArea]?.map((dev) => (
+              <p
+                key={dev}
+                onClick={() => {
+                  setSelectedDeveloper(dev);
+                  setShowDevAndButton(true); // Ensure dev and button columns are shown
+                }}
+                className={selectedDeveloper === dev ? "active" : ""}
+              >
+                {dev}
+              </p>
+            ))}
+          </div>
+          <div className="column">
+            <h3>{selectedDeveloper || selectedArea} Developer</h3>
+            <p>{descriptions[selectedArea]}</p>
+            {unifiedButton(`Hire ${selectedDeveloper || selectedArea}`, "/hire-talent/step2")}
+          </div>
+          <button 
+            className="reset-selection-btn"
+            onClick={() => {
+              setSelectedDeveloper(null); 
+              setShowDevAndButton(false); // Reset to areas
+            }}
+          >
+            Reset Selection
+          </button>
+        </>
+      )}
+    </div>
+  );
+
+  // Render content dynamically for various dropdowns
+  const renderCompaniesContent = (items) => renderContent(items, "companies");
+  const renderTalentContent = (items) => renderContent(items, "talent");
+  const renderIndustriesContent = (items) => (
+    <div className="column">
+      {items.actions.map((action) => (
+        <p key={action.name}>
+          <Link to={action.link}>{action.name}</Link>
+        </p>
+      ))}
+      {unifiedButton(items.button.label, items.button.link)}
+    </div>
+  );
+  const renderServicesContent = (items) => (
+    <div className="column">
+      {items.engagementModels.map((service) => (
+        <p key={service.title}>
+          <Link to={`/services/${service.title.toLowerCase().replace(/ /g, "-")}`}>
+            {service.title}
+          </Link>
+        </p>
+      ))}
+      {unifiedButton("View All Services", "/services")}
+    </div>
+  );
+
+  // Common render function
   const renderContent = (items, type) => (
     <div className="column">
       {items.map((item) => (
@@ -139,66 +126,29 @@ const Header = () => {
             <img src={aberrange} alt="Aberrange Logo" />
           </Link>
         </div>
-
         <div className={sidebar ? "nav-links-sidebar active" : "nav-links-sidebar"}>
           <ul>
             <li>
-              <Dropdown
-                title="For Companies"
-                items={companiesData}
-                renderContent={renderCompaniesContent}
-                onClose={() => toggleSidebar(false)}
-              />
+              <Dropdown title="For Companies" items={companiesData} renderContent={renderCompaniesContent} onClose={() => toggleSidebar(false)} />
             </li>
-
             <li>
-              <Dropdown
-                title="For Talent"
-                items={talentData}
-                renderContent={renderTalentContent}
-                onClose={() => toggleSidebar(false)}
-              />
+              <Dropdown title="For Talent" items={talentData} renderContent={renderTalentContent} onClose={() => toggleSidebar(false)} />
             </li>
-
             <li>
-              <Link to="/about" onClick={() => toggleSidebar(false)}>
-                What we do
-              </Link>
+              <Link to="/about" onClick={() => toggleSidebar(false)}>What we do</Link>
             </li>
-
             <li>
-              <Dropdown
-                title="Industries"
-                items={industriesData}
-                renderContent={renderIndustriesContent}
-                onClose={() => toggleSidebar(false)}
-              />
+              <Dropdown title="Industries" items={industriesData} renderContent={renderIndustriesContent} onClose={() => toggleSidebar(false)} />
             </li>
-
             <li>
-              <Dropdown
-                title="Services"
-                items={servicesData}
-                renderContent={renderServicesContent}
-                onClose={() => toggleSidebar(false)}
-              />
+              <Dropdown title="Services" items={servicesData} renderContent={renderServicesContent} onClose={() => toggleSidebar(false)} />
             </li>
-
             <li>
-              <Dropdown
-                title="Hire Talent"
-                items={industriesData}
-                renderContent={renderHireContent}
-                onClose={() => toggleSidebar(false)}
-              />
+              <Dropdown title="Hire Talent" items={industriesData} renderContent={renderHireContent} onClose={() => toggleSidebar(false)} />
             </li>
           </ul>
         </div>
-
-        <button
-          className="navbar-items-icon"
-          onClick={() => toggleSidebar(!sidebar)}
-        >
+        <button className="navbar-items-icon" onClick={() => toggleSidebar(!sidebar)}>
           {sidebar ? <CloseIcon /> : <MenuIcon />}
         </button>
       </div>

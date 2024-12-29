@@ -21,8 +21,8 @@ const HireDevelopers = () => {
     <div className="hire-developers-page">
    
       <div className="categories">
-      <div className="header">
-        <h1>Hire Developers</h1>
+      <div className="header-section">
+        <h3>Hire Developers</h3>
         <CloseIcon className="close-icon" onClick={closePage} />
       </div>
 
