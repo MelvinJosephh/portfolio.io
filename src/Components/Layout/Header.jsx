@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import aberrange from "../../Assets/logo/aberrange-logo-themed.png";
 import { Link } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
+import aberrange from "../../Assets/logo/aberrange-logo-themed.png";
 import Dropdown from "../Dropdown";
 import "../../Styles/layout/Header.scss";
 import { data, descriptions } from "../../Models/hireTalentModel";
@@ -10,42 +10,16 @@ import { industriesData } from "../../Models/industriesModel";
 import { servicesData } from "../../Models/servicesModel";
 import companiesData from "../../Assets/data/companiesData";
 import talentData from "../../Assets/data/talentData";
+import { useSidebar } from "../Layout/useSidebar";  
 
 const Header = () => {
-  const [sidebar, setSidebar] = useState(false);
-  const [selectedArea, setSelectedArea] = useState("Frontend");
+  const { sidebar, toggleSidebar } = useSidebar(); // Using custom hook for sidebar state
   const [selectedDeveloper, setSelectedDeveloper] = useState(null);
+  const [selectedArea, setSelectedArea] = useState("Frontend");
 
-  const unifiedButton = (label, link) => (
-    <button className="primary-btn">
-      <Link to={link}>{label}</Link>
-    </button>
-  );
-
-  const renderCompaniesContent = (items) => (
-    <>
-      <div className="column">
-        {items.map((item) => (
-          <p key={item.name}>
-            <Link to={item.link}>{item.name}</Link>
-          </p>
-        ))}
-      </div>
-    </>
-  );
-
-  const renderTalentContent = (items) => (
-    <>
-      <div className="column">
-        {items.map((item) => (
-          <p key={item.name}>
-            <Link to={item.link}>{item.name}</Link>
-          </p>
-        ))}
-      </div>
-    </>
-  );
-
+  // Render content dynamically
+  const renderCompaniesContent = (items) => renderContent(items, 'companies');
+  const renderTalentContent = (items) => renderContent(items, 'talent');
   const renderIndustriesContent = (items) => (
     <>
       <div className="scrollable-content">
@@ -70,11 +44,7 @@ const Header = () => {
       </div>
     </>
   );
-  
-  
-  
-
-  const renderContent = (items) => (
+  const renderServicesContent = (items) => (
     <>
       <div className="column">
         {items.engagementModels.map((service) => (
@@ -106,6 +76,7 @@ const Header = () => {
     </>
   );
 
+  
   const renderHireContent = () => (
     <>
       <div className="column">
@@ -138,80 +109,95 @@ const Header = () => {
     </>
   );
 
+
+  // Unified button rendering for consistent styling
+  const unifiedButton = (label, link) => (
+    <button className="primary-btn">
+      <Link to={link}>{label}</Link>
+    </button>
+  );
+
+  // Common render function to handle content display for various categories
+  const renderContent = (items, type) => (
+    <div className="column">
+      {items.map((item) => (
+        <p key={item.name || item.title}>
+          <Link to={item.link || `/services/${item.title.toLowerCase().replace(/ /g, "-")}`}>
+            {item.name || item.title}
+          </Link>
+        </p>
+      ))}
+      {type === "industries" && unifiedButton("View All Services", "/services")}
+    </div>
+  );
+
   return (
     <header className="header">
       <div className="container">
         <div className="logo">
-          <Link to="/" onClick={() => setSidebar(false)}>
+          <Link to="/" onClick={() => toggleSidebar(false)}>
             <img src={aberrange} alt="Aberrange Logo" />
           </Link>
         </div>
 
-        <div
-          className={sidebar ? "nav-links-sidebar active" : "nav-links-sidebar"}
-        >
+        <div className={sidebar ? "nav-links-sidebar active" : "nav-links-sidebar"}>
           <ul>
             <li>
               <Dropdown
                 title="For Companies"
                 items={companiesData}
                 renderContent={renderCompaniesContent}
-                onClose={() => setSidebar(false)} 
+                onClose={() => toggleSidebar(false)}
               />
             </li>
 
             <li>
               <Dropdown
                 title="For Talent"
-                onClick={() => setSidebar(false)}
                 items={talentData}
                 renderContent={renderTalentContent}
+                onClose={() => toggleSidebar(false)}
               />
             </li>
 
             <li>
-              <Link to="/about" onClick={() => setSidebar(false)}>
+              <Link to="/about" onClick={() => toggleSidebar(false)}>
                 What we do
               </Link>
             </li>
+
             <li>
               <Dropdown
                 title="Industries"
-                onClick={() => setSidebar(false)}
                 items={industriesData}
                 renderContent={renderIndustriesContent}
+                onClose={() => toggleSidebar(false)}
               />
             </li>
 
             <li>
               <Dropdown
                 title="Services"
-                onClick={() => setSidebar(false)}
                 items={servicesData}
-                renderContent={renderContent}
+                renderContent={renderServicesContent}
+                onClose={() => toggleSidebar(false)}
               />
             </li>
 
             <li>
-
-            <Dropdown
+              <Dropdown
                 title="Hire Talent"
-                onClick={() => setSidebar(false)}
                 items={industriesData}
                 renderContent={renderHireContent}
+                onClose={() => toggleSidebar(false)}
               />
-
-              
-              {/* <Link to="/hire-talent/step1" onClick={() => setSidebar(false)}>
-              Hire Talent
-              </Link> */}
             </li>
           </ul>
         </div>
 
         <button
           className="navbar-items-icon"
-          onClick={() => setSidebar(!sidebar)}
+          onClick={() => toggleSidebar(!sidebar)}
         >
           {sidebar ? <CloseIcon /> : <MenuIcon />}
         </button>

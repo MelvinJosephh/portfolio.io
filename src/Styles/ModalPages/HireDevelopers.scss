@@ -1,101 +1,86 @@
 .hire-developers-page {
   position: relative;
   padding: 3rem;
-  background-color: #f4f7fb; // Light background color for a clean look
+  background-color: #f4f7fb;
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  max-width: 1200px;
+  max-width: 800px;
   margin: 50px auto;
   overflow: hidden;
-  width: 100%; // Ensure responsiveness across all devices
 
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 1.5rem;
-    border-bottom: 2px solid #e0e5f2;
     margin-bottom: 2rem;
 
     h1 {
       font-size: 2.5rem;
       font-weight: 600;
       color: #333;
-      letter-spacing: 1px;
     }
 
     .close-icon {
       font-size: 2.5rem;
       cursor: pointer;
       color: #333;
-      transition: color 0.3s ease;
 
       &:hover {
-        color: #ff3b30; // Red for an action cue
+        color: #ff3b30;
       }
     }
   }
 
   .categories {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 
     .category {
       background-color: #ffffff;
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
 
-      &:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+      .category-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        cursor: pointer;
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #e0e5f2;
+
+        h2 {
+          font-size: 1.5rem;
+          font-weight: 500;
+          color: #444;
+        }
+
+        span {
+          font-size: 1.5rem;
+          color: #007bff;
+          transition: transform 0.3s ease;
+        }
       }
 
-      h2 {
-        font-size: 1.8rem;
-        font-weight: 500;
-        color: #444;
-        margin-bottom: 1.2rem;
-        text-transform: capitalize;
-      }
-
-      ul {
-        list-style-type: none;
-        padding: 0;
+      .category-items {
+        list-style: none;
+        margin: 0;
+        padding: 1rem 1.5rem;
+        background-color: #ffffff;
 
         li {
-          margin-bottom: 0.8rem;
+          margin-bottom: 0.5rem;
 
           a {
-            font-size: 1.1rem;
-            font-weight: 400;
-            color: #007BFF;
+            font-size: 1.2rem;
+            color: #007bff;
             text-decoration: none;
-            position: relative;
-            transition: color 0.3s ease;
 
             &:hover {
+              text-decoration: underline;
               color: #0056b3;
-            }
-
-            &::after {
-              content: '';
-              position: absolute;
-              left: 0;
-              bottom: 0;
-              width: 100%;
-              height: 2px;
-              background-color: #007BFF;
-              transform: scaleX(0);
-              transform-origin: bottom right;
-              transition: transform 0.3s ease;
-            }
-
-            &:hover::after {
-              transform: scaleX(1);
-              transform-origin: bottom left;
             }
           }
         }
@@ -103,66 +88,18 @@
     }
   }
 
-  // For Tablets (width between 600px and 1024px)
-  @media (max-width: 1024px) and (min-width: 600px) {
-    padding: 2rem;
-    margin: 20px auto;
-
-    .header h1 {
-      font-size: 2.2rem;
-    }
-
-    .categories {
-      grid-template-columns: repeat(2, 1fr); // Two columns for tablets
-    }
-
-    .category {
-      padding: 1.5rem;
-    }
-
-    .header .close-icon {
-      font-size: 2rem;
-    }
-  }
-
-  // For Mobile (width below 600px)
+  // Responsive Styles
   @media (max-width: 600px) {
     padding: 1.5rem;
-    margin: 10px auto;
 
     .header h1 {
-      font-size: 1.8rem;
-    }
-
-    .categories {
-      grid-template-columns: 1fr; // Single column for mobile devices
-      gap: 1.5rem;
-    }
-
-    .category {
-      padding: 1.2rem;
-    }
-
-    .header .close-icon {
       font-size: 2rem;
     }
-  }
-
-  // For Larger Screens (Width above 1200px, e.g., large desktops)
-  @media (min-width: 1200px) {
-    padding: 4rem;
-    margin: 70px auto;
-
-    .header h1 {
-      font-size: 3rem;
-    }
 
     .categories {
-      grid-template-columns: repeat(3, 1fr); // Three columns for larger screens
-    }
-
-    .category {
-      padding: 2.5rem;
+      .category .category-header h2 {
+        font-size: 1.3rem;
+      }
     }
   }
 }

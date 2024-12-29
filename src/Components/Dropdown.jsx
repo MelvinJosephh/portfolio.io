@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import '../Styles/components/Dropdown.scss'
+import "../Styles/components/Dropdown.scss";
 
 const Dropdown = ({ title, items = [], renderContent, onClose }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,33 +21,32 @@ const Dropdown = ({ title, items = [], renderContent, onClose }) => {
 
   const toggleDropdown = () => setIsOpen((prev) => !prev);
 
-  const renderSections = () =>
-    items.map(({ title, type, items }, idx) => (
-      <div key={idx} className="dropdown-section">
-        {title && <div className="section-title">{title}</div>}
-        <ul className={type === "simple" ? "simple-list" : "subcategory-list"}>
-          {items.map(({ label, link }, itemIdx) => (
-            <li key={itemIdx} className="subcategory-item">
-              <Link to={link}>{label}</Link>
-            </li>
-          ))}
-        </ul>
-        
-      </div>
-    ));
-
   return (
     <li className="dropdown-wrapper" ref={dropdownRef}>
-    <a  href="#" onClick={(e) => { e.preventDefault(); toggleDropdown(); }}>
-      {title}
-    </a>
-    {isOpen && (
-      <div className="dropdown-content">
-        {renderContent ? renderContent(items) : <div className="dropdown-sections">{renderSections()}</div>}
-      </div>
-    )}
-  </li>
-  
+      <a href="#" onClick={(e) => { e.preventDefault(); toggleDropdown(); }}>
+        {title}
+      </a>
+      {isOpen && (
+        <div className="dropdown-content">
+          {renderContent ? renderContent(items) : (
+            <div className="dropdown-sections">
+              {items.map(({ title, items }, idx) => (
+                <div key={idx} className="dropdown-section">
+                  {title && <div className="section-title">{title}</div>}
+                  <ul className={items.length ? "simple-list" : "subcategory-list"}>
+                    {items.map(({ label, link }, itemIdx) => (
+                      <li key={itemIdx} className="subcategory-item">
+                        <Link to={link}>{label}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+    </li>
   );
 };
 
@@ -56,7 +55,6 @@ Dropdown.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
-      type: PropTypes.string,
       items: PropTypes.arrayOf(
         PropTypes.shape({
           label: PropTypes.string.isRequired,

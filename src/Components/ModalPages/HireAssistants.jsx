@@ -5,9 +5,14 @@ import categories from '../../Assets/data/skills/assistantsData';
 
 const HireAssistants = () => {
   const [showPage, setShowPage] = useState(true);
+  const [activeCategory, setActiveCategory] = useState(null);
 
   const closePage = () => {
     setShowPage(false);
+  };
+
+  const toggleCategory = (index) => {
+    setActiveCategory(activeCategory === index ? null : index);
   };
 
   if (!showPage) return null;
@@ -22,14 +27,22 @@ const HireAssistants = () => {
       <div className="categories">
         {categories.map((category, index) => (
           <div key={index} className="category">
-            <h2>{category.title}</h2>
-            <ul>
-              {category.items.map((item, idx) => (
-                <li key={idx}>
-                  <a href={`#${item.replace(/ /g, '-').toLowerCase()}`}>{item}</a>
-                </li>
-              ))}
-            </ul>
+            <div
+              className="category-header"
+              onClick={() => toggleCategory(index)}
+            >
+              <h2>{category.title}</h2>
+              <span>{activeCategory === index ? '-' : '+'}</span>
+            </div>
+            {activeCategory === index && (
+              <ul className="category-items">
+                {category.items.map((item, idx) => (
+                  <li key={idx}>
+                    <a href={`#${item.replace(/ /g, '-').toLowerCase()}`}>{item}</a>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         ))}
       </div>
