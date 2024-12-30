@@ -18,7 +18,6 @@ const Header = () => {
   const [selectedArea, setSelectedArea] = useState("Frontend");
   const [showDevAndButton, setShowDevAndButton] = useState(false);
 
-  // Unified button rendering
   const unifiedButton = (label, link) => (
     <button className="primary-btn">
       <Link to={link}>{label}</Link>
@@ -28,7 +27,6 @@ const Header = () => {
   // Render Hire Content with toggle behavior for mobile/tablet
   const renderHireContent = () => (
     <div className="column">
-      {/* Show the area list only if no developer is selected */}
       {!showDevAndButton ? (
         Object.keys(data).map((area) => (
           <p
@@ -44,7 +42,6 @@ const Header = () => {
         ))
       ) : (
         <>
-          {/* Replace area with the selected developer and the button */}
           <div className="column">
             {data[selectedArea]?.map((dev) => (
               <p
@@ -64,10 +61,10 @@ const Header = () => {
             <p>{descriptions[selectedArea]}</p>
             {unifiedButton(`Hire ${selectedDeveloper || selectedArea}`, "/hire-talent/step2")}
           </div>
-          <button 
+          <button
             className="reset-selection-btn"
             onClick={() => {
-              setSelectedDeveloper(null); 
+              setSelectedDeveloper(null);
               setShowDevAndButton(false); // Reset to areas
             }}
           >
@@ -78,9 +75,9 @@ const Header = () => {
     </div>
   );
 
-  // Render content dynamically for various dropdowns
   const renderCompaniesContent = (items) => renderContent(items, "companies");
   const renderTalentContent = (items) => renderContent(items, "talent");
+
   const renderIndustriesContent = (items) => (
     <div className="column">
       {items.actions.map((action) => (
@@ -91,6 +88,7 @@ const Header = () => {
       {unifiedButton(items.button.label, items.button.link)}
     </div>
   );
+
   const renderServicesContent = (items) => (
     <div className="column">
       {items.engagementModels.map((service) => (
@@ -104,7 +102,6 @@ const Header = () => {
     </div>
   );
 
-  // Common render function
   const renderContent = (items, type) => (
     <div className="column">
       {items.map((item) => (
@@ -129,22 +126,49 @@ const Header = () => {
         <div className={sidebar ? "nav-links-sidebar active" : "nav-links-sidebar"}>
           <ul>
             <li>
-              <Dropdown title="For Companies" items={companiesData} renderContent={renderCompaniesContent} onClose={() => toggleSidebar(false)} />
+              <Dropdown
+                title="For Companies"
+                items={companiesData}
+                renderContent={renderCompaniesContent}
+                onClose={() => toggleSidebar(false)}
+              />
             </li>
             <li>
-              <Dropdown title="For Talent" items={talentData} renderContent={renderTalentContent} onClose={() => toggleSidebar(false)} />
+              <Dropdown
+                title="For Talent"
+                items={talentData}
+                renderContent={renderTalentContent}
+                onClose={() => toggleSidebar(false)}
+              />
             </li>
             <li>
-              <Link to="/about" onClick={() => toggleSidebar(false)}>What we do</Link>
+              <Link to="/about" onClick={() => toggleSidebar(false)}>
+                What we do
+              </Link>
             </li>
             <li>
-              <Dropdown title="Industries" items={industriesData} renderContent={renderIndustriesContent} onClose={() => toggleSidebar(false)} />
+              <Dropdown
+                title="Industries"
+                items={industriesData}
+                renderContent={renderIndustriesContent}
+                onClose={() => toggleSidebar(false)}
+              />
             </li>
             <li>
-              <Dropdown title="Services" items={servicesData} renderContent={renderServicesContent} onClose={() => toggleSidebar(false)} />
+              <Dropdown
+                title="Services"
+                items={servicesData}
+                renderContent={renderServicesContent}
+                onClose={() => toggleSidebar(false)}
+              />
             </li>
             <li>
-              <Dropdown title="Hire Talent" items={industriesData} renderContent={renderHireContent} onClose={() => toggleSidebar(false)} />
+              <Dropdown
+                title="Hire Talent"
+                items={industriesData}
+                renderContent={renderHireContent}
+                onClose={() => toggleSidebar(false)}
+              />
             </li>
           </ul>
         </div>

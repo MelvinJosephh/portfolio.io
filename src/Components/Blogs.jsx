@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import { Link } from "react-router-dom";
-import '../Styles/components/Blogs.scss'
+import '../Styles/components/Blogs.scss';
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
@@ -13,19 +13,20 @@ const Blogs = () => {
     try {
       setLoading(true);
       const response = await axios.get("http://localhost:5000/api/blogs");
-      const blogs = response.data.map((blog) => ({
+      const blogsData = response.data.map((blog) => ({
         _id: blog._id,
         title: blog.title,
         excerpt: blog.excerpt,
         publishDate: blog.publishDate,
         author: blog.author,
         permalink: blog.permalink,
+        featuredImage: blog.featuredImage,
       }));
 
-      localStorage.setItem("blogs", JSON.stringify(blogs));
+      localStorage.setItem("blogs", JSON.stringify(blogsData));
       localStorage.setItem("blogsTimestamp", new Date().getTime());
 
-      setBlogs(response.data);
+      setBlogs(blogsData);
     } catch (err) {
       setError("Failed to fetch blogs.");
     } finally {
@@ -70,11 +71,15 @@ const Blogs = () => {
           {blogs.map((blog) => (
             <div className="box" key={blog._id}>
               <div className="img">
-                <img
-                  src={`data:image/jpeg;base64,${blog.featuredImage}`}
-                  alt={blog.title}
-                  loading="lazy"
-                />
+                {blog.featuredImage ? (
+                  <img
+                    src={`data:image/jpeg;base64,${blog.featuredImage}`}
+                    alt={blog.title}
+                    loading="lazy"
+                  />
+                ) : (
+                  <p>No image available</p>
+                )}
               </div>
               <div className="text">
                 <span>{new Date(blog.publishDate).toLocaleDateString()}</span>

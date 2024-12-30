@@ -1,20 +1,3 @@
-/* --------Wrapper Styling-------- */
-.wrapper .container {
-  max-width: 1280px;
-  margin: auto;
-  text-align: center;
-  padding: 20px;
-}
-
-.wrapper h2 {
-  font-size: 40px;
-}
-
-.wrapper p {
-  opacity: 1;
-  margin-bottom: 30px;
-}
-
 /* --------WrapperOne Styling-------- */
 .WrapperOne {
   background: var(--primary-color);
@@ -22,11 +5,13 @@
   padding: 60px 20px;
 
   .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
     max-width: 1280px;
     margin: 0 auto;
+    align-items: center;
   }
 
   /* Box Styling */
@@ -35,86 +20,73 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+    width: 280px; /* Set a fixed width for better control */
+    text-align: center;
+    transition: transform 0.3s ease;
 
-  .WrapperOne h1 {
-    color: #fff;
-    font-size: 2.5rem;
-  }
+    &:hover {
+      transform: translateY(-10px); /* Slight hover effect */
+    }
 
-  .WrapperOne p {
-    font-size: 1rem;
-    color: #fff;
-    margin: 10px 0;
+    h1 {
+      font-size: 3rem;
+      color: var(--primary-color);
+      margin: 0;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #555;
+      margin-top: 10px;
+    }
   }
 
   /* Responsive Styles */
   @media (max-width: var(--breakpoint-mobile-s)) {
     .container {
-      grid-template-columns: 1fr;
-      gap: 10px;
+      flex-direction: column;
+      gap: 15px;
     }
 
     .box {
+      width: 100%;
       text-align: center;
-      gap: 8px;
     }
 
-    .WrapperOne h1 {
-      font-size: 1.8rem;
+    h1 {
+      font-size: 2rem;
     }
 
-    .WrapperOne p {
+    p {
       font-size: 1rem;
     }
   }
 
   @media (max-width: var(--breakpoint-mobile-m)) {
-    .box h1 {
-      font-size: 2rem;
-    }
-
-    .WrapperOne p {
-      font-size: 1.1rem;
-    }
-  }
-
-  @media (max-width: var(--breakpoint-mobile-l)) {
-    .container {
-      gap: 15px;
-    }
-
-    .box h1 {
+    h1 {
       font-size: 2.2rem;
     }
 
-    .WrapperOne p {
-      font-size: 1.2rem;
+    p {
+      font-size: 1.1rem;
     }
   }
 
   @media (max-width: var(--breakpoint-tablet)) {
     padding: 50px 20px;
 
-    .box h1 {
+    h1 {
       font-size: 2.4rem;
     }
 
-    .WrapperOne p {
-      font-size: 1.3rem;
+    p {
+      font-size: 1.2rem;
     }
   }
 
   @media (max-width: var(--breakpoint-laptop)) {
     .container {
       max-width: 960px;
-    }
-  }
-
-  @media (max-width: var(--breakpoint-laptop-l)) {
-    .container {
-      max-width: 1280px;
-      gap: 25px;
     }
   }
 
@@ -126,15 +98,18 @@
       gap: 40px;
     }
 
-    .box h1 {
-      font-size: 3rem;
+    h1 {
+      font-size: 3.5rem;
     }
 
-    .WrapperOne p {
+    p {
       font-size: 1.4rem;
     }
   }
 }
+
+
+
 
 /* --------Wrapper Styling-------- */
 .wrapper .container {

@@ -31,6 +31,7 @@ import WhatWeDo from './Components/WhatWeDo.jsx';
 
 
 import { StepProvider  } from './Context/StepContext.js';
+import OurSolutions from './Components/ModalPages/OurSolutions.jsx';
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
           <Route path='/how-it-works' element={<HowAberrangeWorks/>} />
           <Route path='/pricing' element={<PricingPage/>} />
           <Route path='/find-work' element={<FindWork/>} />
+          <Route path='/our-solutions' element={<OurSolutions/>} />
           <Route path="/jobs" element={<JobListings />} />
           <Route path='/register' element={<FreelancerRegistration/>} />
           <Route path='/overview' element={<Overview/>} />

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; 
 import '../../Styles/layout/Wrapper.scss';
 import brandingWrapper from '../../Assets/data/brandingWrapper';
 
@@ -14,7 +15,9 @@ const Wrapper = () => {
                         <h3>{val.title}</h3>
                         <h2>{val.heading}</h2>
                         <p>{val.desc}</p>
-                        <button className="primary-btn">Contact Us</button>
+                       <Link to="/contact" className="primary-btn">
+                                         Contact Us
+                                         </Link>
                     </div>
                 )
 

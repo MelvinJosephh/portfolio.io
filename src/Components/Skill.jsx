@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; 
 import '../Styles/components/Skills.scss';
 
 const Skill = () => {
@@ -43,7 +44,9 @@ const Skill = () => {
                   <h1>{val.title}</h1>
                   <p>{val.para}</p>
                   <p>{val.para1}</p>
-                  <button className="primary-btn">Hire Talent</button>
+                  <Link to="/hire-talent/step1" className="primary-btn">
+                  Hire Talent
+                  </Link>
                 </div>
               ))}
             </div>

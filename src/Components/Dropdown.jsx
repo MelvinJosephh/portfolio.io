@@ -23,6 +23,7 @@ const Dropdown = ({ title, items = [], renderContent, onClose }) => {
 
   const handleLinkClick = () => {
     setIsOpen(false);  // Close the dropdown when a link is clicked
+    onClose?.();
   };
 
   return (
@@ -40,7 +41,9 @@ const Dropdown = ({ title, items = [], renderContent, onClose }) => {
                   <ul className={items.length ? "simple-list" : "subcategory-list"}>
                     {items.map(({ label, link }, itemIdx) => (
                       <li key={itemIdx} className="subcategory-item">
-                        <Link to={link} onClick={handleLinkClick}>{label}</Link>
+                        <Link to={link} onClick={handleLinkClick}>
+                          {label}
+                        </Link>
                       </li>
                     ))}
                   </ul>
