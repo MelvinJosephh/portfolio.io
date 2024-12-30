@@ -15,7 +15,8 @@ const Step6Skills = ({ onNext, onBack }) => {
     "UI/UX Design",
     "Project Management",
     "SQL",
-    "Mobile Development"
+    "Mobile Development",
+    "Others"
   ];
 
   const selectedSkills = formData.skills; 

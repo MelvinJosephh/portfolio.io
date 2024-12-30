@@ -1,7 +1,6 @@
-
-import "../../../Styles/HireTalent/StepTemplate.scss"
+import "../../../Styles/HireTalent/StepTemplate.scss";
 import React from "react";
-import { StyledButton } from "../../Shared/StyledComponents.jsx"; // You can remove StyledButton import if it's not needed anymore
+import { StyledButton } from "../../Shared/StyledComponents.jsx"; // Keep this import if you still need styled buttons
 
 const StepTemplate = ({
   title,
@@ -10,7 +9,7 @@ const StepTemplate = ({
   setSelectedOption,
   onNext,
   onBack,
-  isFirst = false, 
+  isFirst = false,
   isFinalStep = false,
   showSkipButton = false,
   children, // Step content like forms
@@ -19,25 +18,23 @@ const StepTemplate = ({
     <div className="step-template">
       <h2>{title}</h2>
 
-      {/* Render options as a clickable list */}
+      {/* Render options as a grid */}
       {options.length > 0 && (
-        <ul>
+        <div className="options-grid">
           {options.map((option, index) => (
-            <li
+            <div
               key={index}
               onClick={() => setSelectedOption(option)}
-              className={selectedOption === option ? "selected" : ""}
+              className={`option ${selectedOption === option ? "selected" : ""}`}
             >
               {option}
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       )}
-      
+
       {/* Render Step content */}
-      <div className="step-content">
-        {children}
-      </div>
+      <div className="step-content">{children}</div>
 
       {/* Conditionally render the Back button (only if not the first step) */}
       <div className="actions">
