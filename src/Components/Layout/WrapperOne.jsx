@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import '../../Styles/layout/Wrapper.scss';
 import wrapperData from '../../Assets/data/wrapperData';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const WrapperOne = () => {
   const [counts, setCounts] = useState(wrapperData.map(() => 0));  // State for tracking each counter separately
@@ -39,13 +41,22 @@ const WrapperOne = () => {
         });
       }
     });
-  }, []);
+
+    // Initialize AOS animation library
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+
+    // Reinitialize AOS after count updates
+    AOS.refresh();
+  }, []);  // Empty dependency array ensures it runs once when the component is mounted
 
   return (
     <section className="branding WrapperOne">
       <div className="container">
         {wrapperData.map((val, index) => (
-          <div className="box" key={index}>
+          <div className="box" key={index} data-aos="zoom-in-up"> {/* Add the animation to each box */}
             <h1>{typeof val.num === 'number' ? counts[index] : val.num}</h1>
             <p>{val.text}</p>
           </div>

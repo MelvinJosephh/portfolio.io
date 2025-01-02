@@ -1,46 +1,41 @@
 const ServicesData = [
     {
-        id: 1,
-        title: "UI/UX Design",
-        desc: "Our experience allows Us to create easy user interface navigation, ensuring the user’s needs are met. Got better understanding of user context and problems, ensuring We offer best-fit solutions to their problems.",
-        cover: "./assets/services/services1.jpg",
-
+      id: 1,
+      title: "Branding & Design",
+      desc: "We create impactful logos, visuals, and branding strategies that represent your business identity. From graphic design to creative direction, we bring your brand vision to life.",
+      cover: "./assets/services/services1.jpg",
     },
     {
-        id: 2,
-        title: "Web Development",
-        desc: "With front-end and back-end solutions, We am committed to creating state-of-the-art websites for our customers.",
-        cover: "./assets/services/services2.jpg",
-
+      id: 2,
+      title: "Web Development",
+      desc: "From front-end to back-end, we build powerful, responsive websites that meet your business goals and deliver lasting results.",
+      cover: "./assets/services/services2.jpg",
     },
     {
-        id: 3,
-        title: "Virtual Assistance",
-        desc: "Are you on a fast-track project to improve productivity? Virtual assistance is the way now. With our services, we offer administrative services so that your work does not stop 24/7",
-        cover: "./assets/services/services3.jpg",
-
+      id: 3,
+      title: "Academic Research",
+      desc: "We provide in-depth academic research services, helping you explore and analyze complex topics with precision and clarity.",
+      cover: "./assets/services/services3.jpg",
     },
     {
-        id: 4,
-        title: "Q/A Services",
-        desc: "Get Us come on board to help fix bugs and errors that cause lagging and hinder the smooth productivity of websites.",
-        cover: "./assets/services/services4.jpg",
-
+      id: 4,
+      title: "Q/A Services",
+      desc: "We ensure your websites run smoothly by identifying and fixing bugs, boosting performance, and enhancing user satisfaction.",
+      cover: "./assets/services/services4.jpg",
     },
     {
-        id: 5,
-        title: "System Maintenance",
-        desc: "In a world where technology constantly improves, monitoring, evaluating, and modifying existing ones is key to improving productivity. Our customer-based approach ensures that systems are updated and well-maintained.",
-        cover: "./assets/services/services5.jpg",
-
+      id: 5,
+      title: "System Maintenance",
+      desc: "We keep your systems up-to-date and running efficiently, offering ongoing monitoring and modifications to optimize performance.",
+      cover: "./assets/services/services5.jpg",
     },
     {
-        id: 6,
-        title: "Content Writing",
-        desc: "Content writing is one of our strengths. Creativity requires diversity and comes in handy with exclusive content for excellent results based on customer needs.",
-        cover: "./assets/services/services6.jpg",
-
+      id: 6,
+      title: "Virtual Assistance",
+      desc: "Our virtual assistance services offer reliable, 24/7 support to handle administrative tasks and keep your operations running smoothly.",
+      cover: "./assets/services/services6.jpg",
     },
-   
-]
-export default ServicesData
+  ];
+  
+  export default ServicesData;
+  

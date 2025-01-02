@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../Styles/layout/Home.scss";
 import companiesData from "../../Assets/data/companiesData";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Home = () => {
   const [selectedOption, setSelectedOption] = useState("");
@@ -27,39 +29,60 @@ const Home = () => {
     const interval = setInterval(() => {
       wordIndex = (wordIndex + 1) % words.length;
       setCurrentWord(words[wordIndex]);
-    }, 2000); // Change word every 2 seconds
 
-    return () => clearInterval(interval); // Cleanup interval on component unmount
+      // Trigger AOS to refresh on word change
+      AOS.refresh(); 
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+
+    AOS.refresh();
+
+    return () => {
+      AOS.refresh();
+    };
   }, []);
 
   return (
     <section
       className="home"
-      style={{
-        backgroundImage: `url(${data.cover})`,
-      }}
+      style={{ backgroundImage: `url(${data.cover})` }}
     >
       <div className="content-wrapper">
-        <div className="content" data-aos="fade-up">
+        <div className="content" data-aos="zoom-out-down">
           <h1 className="brand-promise" data-aos="fade-down">
-            {currentWord}
+            <span
+              data-aos="fade-down-right"
+              data-aos-duration="3000"
+
+              key={currentWord} 
+            >
+              {currentWord}
+            </span>
             <span className="solutions"> Solutions</span>
           </h1>
           <p className="intro" data-aos="fade-up">
-            At AberRange, we redefine innovation with cutting-edge solutions in technology, branding, and more. Let’s shape your future together.
+            At AberRange, we redefine innovation with cutting-edge solutions in
+            technology, branding, and more. Let’s shape your future together.
           </p>
 
           <div className="cta-container" data-aos="zoom-in">
-            <Link className="cta-btn" to="/our-solutions">
+            <Link className="primary-btn" to="/our-solutions">
               Explore Our Solutions
             </Link>
           </div>
         </div>
 
-        {/* Dropdown & Proceed Section */}
-        <div className="dropdown-container" data-aos="fade-up">
+        <div className="dropdown-container" data-aos="zoom-in-right">
           <label htmlFor="serviceDropdown" className="prompt">
-            I would like to...
+            What would you like to do today?
           </label>
           <div className="dropdown-and-proceed">
             <select
@@ -77,7 +100,7 @@ const Home = () => {
                 </option>
               ))}
             </select>
-            <button className="proceed-btn" onClick={handleProceed}>
+            <button className="cta-btn" onClick={handleProceed}>
               Proceed
             </button>
           </div>

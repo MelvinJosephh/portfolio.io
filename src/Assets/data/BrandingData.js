@@ -1,20 +1,19 @@
 const brandingData = [
-    {
-      id: "01",
-      heading: "Digital Branding",
-      desc: "I intend to continue offering up-to-date solutions using the best technologies in the market. Every day is an opportunity to offer consistent, innovative, timeless, and strategic marketing designs with a combination of developed digital technologies and skills.",
-    },
-    {
-      id: "02",
-      heading: "Team Management",
-      desc: "I value teamwork and work best when around innovative minds. With teamwork comes improved team efficiency, better code quality, and accountability.",
-    },
-    {
-      id: "03",
-      heading: "Creative mind",
-      desc: "Creativity at its best provides an atmosphere that is ideal for problem-solving, collaboration, and innovation. Given an opportunity, I embrace stronger cohesion, morale, enthusiasm, and passion.",
-    },
-  ];
-  
-  export default brandingData;
-  
+  {
+    id: "01",
+    heading: "Smart Solutions",
+    desc: "We provide intelligent, scalable solutions that drive growth and simplify complex challenges, keeping you ahead of the competition."
+  },
+  {
+    id: "02",
+    heading: "Team Synergy",
+    desc: "Our collaborative approach fuels creativity, efficiency, and high-quality results, empowering your team to achieve more together."
+  },
+  {
+    id: "03",
+    heading: "Innovative Impact",
+    desc: "We turn ideas into actionable solutions with the latest technology, ensuring lasting impact for your business today and tomorrow."
+  }
+];
+
+export default brandingData;
