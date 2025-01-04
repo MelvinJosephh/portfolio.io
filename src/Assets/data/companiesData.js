@@ -31,6 +31,11 @@ const companiesData = [
     },
     {
       id: 7,
+      name: "Hire Research Writer",
+      link: "/hire-writers",
+    },
+    {
+      id: 8,
       name: "Pricing",
       link: "/pricing",
     },

@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import '../../Styles/ModalPages/HireAssistants.scss';
 import categories from '../../Assets/data/skills/assistantsData';
+import { useNavigate } from 'react-router-dom';  // Import useNavigate for routing
 
 const HireAssistants = () => {
   const [showPage, setShowPage] = useState(true);
   const [activeCategory, setActiveCategory] = useState(null);
+  const [activeItem, setActiveItem] = useState(null);  // Store the selected item for modal details
+  const navigate = useNavigate();  // Hook for navigation
 
   const closePage = () => {
     setShowPage(false);
@@ -13,6 +16,19 @@ const HireAssistants = () => {
 
   const toggleCategory = (index) => {
     setActiveCategory(activeCategory === index ? null : index);
+  };
+
+  const handleItemClick = (item) => {
+    setActiveItem(item);  // Set the selected item for the modal
+  };
+
+  const closeItemDetail = () => {
+    setActiveItem(null);  // Close the modal
+  };
+
+  const handleActionClick = () => {
+    closeItemDetail();  // Close the item detail modal
+    navigate('/hire-talent/step2');  // Navigate to the hire assistant process
   };
 
   if (!showPage) return null;
@@ -37,7 +53,10 @@ const HireAssistants = () => {
             {activeCategory === index && (
               <ul className="category-items">
                 {category.items.map((item, idx) => (
-                  <li key={idx}>
+                  <li
+                    key={idx}
+                    onClick={() => handleItemClick(item)}  // Open modal with clicked item
+                  >
                     <a href={`#${item.replace(/ /g, '-').toLowerCase()}`}>{item}</a>
                   </li>
                 ))}
@@ -46,6 +65,20 @@ const HireAssistants = () => {
           </div>
         ))}
       </div>
+
+      {/* Show Item Detail Modal if activeItem is selected */}
+      {activeItem && (
+        <div className="item-detail-modal">
+          <div className="modal-content">
+            <CloseIcon className="close-icon" onClick={closeItemDetail} />
+            <h4>{activeItem}</h4>
+            <p>Details about the selected assistant role will be shown here.</p>
+            <button className="primary-btn" onClick={handleActionClick}>
+              Hire Assistant
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

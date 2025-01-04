@@ -19,8 +19,8 @@ const OurSolutions = () => {
   };
 
   const handleActionClick = () => {
-    closeItemDetail(); // Call the close item detail function
-    navigate('/hire-talent/step2'); // Navigate to the desired route
+    closeItemDetail(); 
+    navigate('/hire-talent/step2'); 
   };
 
   const closeItemDetail = () => {

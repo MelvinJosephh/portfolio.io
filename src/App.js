@@ -18,6 +18,7 @@ import HireAssistants from './Components/ModalPages/HireAssistants.jsx';
 import HireProductManagers from './Components/ModalPages/ProductManagers.jsx';
 import HireProjectManagers from './Components/ModalPages/ProjectManagers.jsx';
 import HireDesigners from './Components/ModalPages/HireDesigners.jsx';
+import HireWriters from './Components/ModalPages/Hire-Academic.jsx';
 import Overview from './Components/ModalPages/Overview.jsx';
 import FindWork from './Components/ModalPages/FindWork.jsx';
 import JobListings  from './Components/Freelancers/JobListings.jsx';
@@ -26,6 +27,7 @@ import ApplicationForm  from './Components/Freelancers/ApplicationForm';
 import JobDetails  from './Components/Freelancers/JobDetails';
 import FreelancerRegistration from './Components/Freelancers/Registration.jsx';
 import WhatWeDo from './Components/WhatWeDo.jsx';
+import GetQuote from './Pages/Get-Quote.jsx';
 
 
 
@@ -54,17 +56,21 @@ function App() {
           <Route path='/hire-project-managers' element={<HireProjectManagers/>} />
           <Route path='/hire-product-managers' element={<HireProductManagers/>} />
           <Route path='/hire-assistants' element={<HireAssistants/>} />
+          <Route path='/hire-writers' element={<HireWriters/>} />
           <Route path='/how-it-works' element={<HowAberrangeWorks/>} />
           <Route path='/pricing' element={<PricingPage/>} />
           <Route path='/find-work' element={<FindWork/>} />
           <Route path='/our-solutions' element={<OurSolutions/>} />
           <Route path="/jobs" element={<JobListings />} />
+          <Route path="/get-quote" element={<GetQuote/>} />
           <Route path='/register' element={<FreelancerRegistration/>} />
           <Route path='/overview' element={<Overview/>} />
           <Route path="/blogs/:permalink" element={<FullBlog />} />
           <Route path="/confirmation" element={<ConfirmationPage />} />
           <Route path="/job-details/:jobId" element={<JobDetails />} />
           <Route path="/apply/:jobId" element={<ApplicationForm />} />
+         
+
          
           
 
