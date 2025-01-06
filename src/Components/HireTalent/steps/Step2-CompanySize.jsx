@@ -9,7 +9,8 @@ const Step2CompanySize = ({ onNext, onBack }) => {
     "1-10 Employees",
     "11-50 Employees",
     "51-200 Employees",
-    "201+ Employees"
+    "201+ Employees",
+    "Solo Project"
   ];
 
   const selectedOption = formData.companySize; 

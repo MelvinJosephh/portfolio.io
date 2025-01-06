@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom'; // To track page changes
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom"; // To track page changes
 import ServicesData from "../Assets/data/ServicesData";
-import '../Styles/components/Services.scss';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import "../Styles/components/Services.scss";
+import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Services = () => {
   const location = useLocation(); // Get the current location (route)
@@ -28,7 +29,7 @@ const Services = () => {
     <section className="services topMargin" id="Services">
       <div className="container">
         <div className="heading" data-aos="fade-down">
-          <h3>Our SERVICES</h3>
+          {/* <h3>Our SERVICES</h3> */}
           <h1>Interactive Services Offered</h1>
         </div>
         <div className="services-grid topMargin">
@@ -46,6 +47,9 @@ const Services = () => {
                 <h2>{val.title}</h2>
                 <p>{val.desc}</p>
               </div>
+              <Link to="/get-quote" className="primary-btn">
+                Get Started
+              </Link>
             </div>
           ))}
         </div>

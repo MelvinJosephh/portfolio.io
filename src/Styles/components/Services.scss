@@ -22,6 +22,10 @@
       margin: 20px;
       position: relative;
       z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;  /* Center contents horizontally */
 
       .service-img {
         width: 100%;
@@ -36,6 +40,15 @@
           margin-bottom: 20px;
           color: var(--text-color); /* Standard readable text color */
         }
+
+        p {
+          margin-bottom: 20px;
+        }
+      }
+
+      .primary-btn {
+        align-self: center;  /* Center the button horizontally */
+        margin-top: 20px;     /* Ensure button has spacing from the content */
       }
     }
   }

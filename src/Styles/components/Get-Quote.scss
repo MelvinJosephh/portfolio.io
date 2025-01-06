@@ -1,112 +1,102 @@
 .get-quote {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: var(--spacing-medium);
-    background-color: var(--card-background-color);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px var(--box-shadow-color);
-  
-    h2 {
-      text-align: center;
-      color: var(--text-color);
-      margin-bottom: var(--spacing-medium);
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--spacing-medium);
+  background-color: var(--card-background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px var(--box-shadow-color);
+
+  h2 {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-medium);
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+
+    label {
+      font-family: inherit;
+      font-weight: bold;
+      color: var(--text-muted-color);
     }
-  
-    form {
+
+    .contact-info,
+    .company-info {
       display: flex;
       flex-direction: column;
-      gap: var(--spacing-medium);
-  
-      label {
-        font-family: inherit;
-        font-weight: bold;
-        color: var(--text-muted-color);
-  
-        span {
-          color: var(--accent-color); // Highlight required fields
-          font-size: 0.9em;
-          margin-left: 5px;
-        }
-  
-        input,
-        select,
-        textarea {
-          margin-top: 5px;
-          padding: var(--spacing-medium);
-          font-size: 1em;
-          border: 1px solid var(--border-color);
-          border-radius: 4px;
-          background-color: var(--background-color);
-          color: var(--text-color);
-          outline: none;
-  
-          &:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 5px rgba(149, 126, 110, 0.5); // Focus shadow using primary color
-          }
-        }
-  
-        textarea {
-          resize: vertical;
-          min-height: 100px;
-        }
-  
-        .MuiInputAdornment-root {
-          font-size: 1.2em;
-        }
-      }
-  
-      .error {
-        color: var(--accent-color); // Accent color for error messages
-        font-size: 0.9em;
-        text-align: center;
-        margin-top: -10px;
-      }
-  
-      button {
-        padding: var(--spacing-medium);
-        font-size: 1em;
-        font-weight: bold;
-        color: var(--light-text-color);
-        background-color: var(--primary-color);
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s, transform 0.2s;
-  
-        &:hover {
-          background-color: var(--hover-text-color); // Hover color defined globally
-          transform: scale(1.02); // Subtle scaling for interaction
-        }
-      }
+      gap: var(--spacing-small);
     }
-  
-    p {
+
+    .error {
+      color: var(--accent-color); 
+      font-size: 0.9em;
       text-align: center;
-      font-size: 1em;
-      color: var(--secondary-color); // Muted text for success messages
-      font-weight: bold;
+      margin-top: -10px;
     }
-  
-    @media (max-width: var(--breakpoint-tablet)) {
-      padding: calc(var(--spacing-medium) / 1.5);
-  
-      form {
-        label {
-          font-size: 0.9em;
-  
-          input,
-          select,
-          textarea {
-            font-size: 0.9em;
-          }
-        }
-  
-        button {
-          font-size: 0.9em;
-        }
+
+    button {
+      padding: var(--spacing-medium);
+      font-size: 1em;
+      font-weight: bold;
+      color: var(--light-text-color);
+      background-color: var(--primary-color);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+
+      &:hover {
+        background-color: var(--hover-text-color); 
+        transform: scale(1.02); 
       }
     }
   }
-  
+
+  p {
+    text-align: center;
+    font-size: 1em;
+    color: var(--secondary-color); 
+    font-weight: bold;
+  }
+
+  @media (max-width: var(--breakpoint-tablet)) {
+    padding: calc(var(--spacing-medium) / 1.5);
+
+    form {
+      label {
+        font-size: 0.9em;
+      }
+
+      button {
+        font-size: 0.9em;
+      }
+    }
+  }
+
+  @media (max-width: var(--breakpoint-mobile)) {
+    padding: var(--spacing-small);
+
+    form {
+      gap: var(--spacing-small);
+
+      label {
+        font-size: 0.8em;
+      }
+
+      .contact-info,
+      .company-info {
+        flex-direction: column;
+        gap: var(--spacing-xsmall);
+      }
+
+      button {
+        font-size: 0.85em;
+        padding: var(--spacing-small);
+      }
+    }
+  }
+}

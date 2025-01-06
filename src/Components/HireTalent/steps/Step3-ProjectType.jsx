@@ -8,6 +8,7 @@ const Step3ProjectType = ({ onNext, onBack }) => {
   const options = [
     "New idea or project",
     "Existing project that needs more resources",
+    "Academic Help",
     "None of the above, I'm just looking to learn more about Aberrange"
   ];
 

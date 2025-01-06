@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextField, Button, MenuItem, Select, InputLabel, FormControl } from "@mui/material";
+import { TextField, Button, MenuItem, Select, InputLabel, InputAdornment, FormControl } from "@mui/material";
 import '../Styles/components/Get-Quote.scss';
 
 const GetQuote = () => {
@@ -7,8 +7,8 @@ const GetQuote = () => {
     name: "",
     email: "",
     phone: "",
-    company: "",  // Optional field
-    website: "",  // Optional field
+    company: "",
+    website: "",
     service: "",
     projectOverview: "",
     budget: "",
@@ -42,7 +42,6 @@ const GetQuote = () => {
     e.preventDefault();
     if (validateForm()) {
       setErrorMessage("");
-      // Here, submit formData to backend API
       console.log("Submitted Data:", formData);
       setIsSubmitted(true);
     }
@@ -55,54 +54,55 @@ const GetQuote = () => {
         <p>Thank you! We will get back to you soon.</p>
       ) : (
         <form onSubmit={handleSubmit}>
-          <TextField
-            label="Name"
-            name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-            fullWidth
-            required
-            margin="normal"
-          />
+          <div className="contact-info">
+            <TextField
+              label="Full Name"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              fullWidth
+              required
+              margin="normal"
+            />
+            <TextField
+              label="Email Address"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              fullWidth
+              required
+              type="email"
+              margin="normal"
+            />
+            <TextField
+              label="Phone Number"
+              name="phone"
+              value={formData.phone}
+              onChange={handleInputChange}
+              fullWidth
+              type="tel"
+              margin="normal"
+            />
+          </div>
 
-          <TextField
-            label="Email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            fullWidth
-            required
-            type="email"
-            margin="normal"
-          />
-
-          <TextField
-            label="Phone"
-            name="phone"
-            value={formData.phone}
-            onChange={handleInputChange}
-            fullWidth
-            type="tel"
-            margin="normal"
-          />
-
-          <TextField
-            label="Company Name (Optional)"
-            name="company"
-            value={formData.company}
-            onChange={handleInputChange}
-            fullWidth
-            margin="normal"
-          />
-
-          <TextField
-            label="Website URL (Optional)"
-            name="website"
-            value={formData.website}
-            onChange={handleInputChange}
-            fullWidth
-            margin="normal"
-          />
+          <div className="company-info">
+            <TextField
+              label="Company Name (Optional)"
+              name="company"
+              value={formData.company}
+              onChange={handleInputChange}
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              label="Website URL (Optional)"
+              name="website"
+              value={formData.website}
+              onChange={handleInputChange}
+              fullWidth
+              margin="normal"
+            />
+          </div>
 
           <FormControl fullWidth margin="normal">
             <InputLabel>Service Interested In</InputLabel>
@@ -142,8 +142,10 @@ const GetQuote = () => {
               value={formData.budget}
               onChange={handleInputChange}
               fullWidth
-              type="number"
               margin="normal"
+              InputProps={{
+                startAdornment: <InputAdornment position="start">$</InputAdornment>,
+              }}
             />
           </div>
 
@@ -163,7 +165,7 @@ const GetQuote = () => {
 
           {errorMessage && <p className="error">{errorMessage}</p>}
 
-          <Button type="submit" variant="contained" color="primary">
+          <Button type="submit" variant="contained" color="primary" fullWidth>
             Submit
           </Button>
         </form>

@@ -23,7 +23,7 @@ const Step4ProjectLength = ({ onNext, onBack }) => {
 
   return (
     <StepTemplate
-      title="How long do you need the developer?"
+      title="How long do you need assistance with this service?"
       options={options}
       selectedOption={selectedOption}
       setSelectedOption={(value) => updateStepData("projectLength", value)} 

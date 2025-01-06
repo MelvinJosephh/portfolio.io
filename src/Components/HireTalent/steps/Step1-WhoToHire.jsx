@@ -9,7 +9,7 @@ const Step1WhoToHire = ({ onNext }) => {
     <StepTemplate
       title="Who would you like to hire?"
       isFirst={true} 
-      options={["Developer", "Designer", "Project Manager", "Product Manager"]}
+      options={["Web Developer", "Academic Researcher", "Q/A Assistant", "System Architect", "Virtual Assistant", "Excel Expert", "Data Analyst", "Graphic Designer"]}
       selectedOption={formData.hire}
       setSelectedOption={(value) => updateStepData("hire", value)}
       onNext={onNext}

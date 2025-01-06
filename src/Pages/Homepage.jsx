@@ -11,7 +11,7 @@ const Homepage = () => {
   return (
     <>
       <Homes/>
-      <Branding/>
+      {/* <Branding/> */}
       <Services/>
       <Wrapper/>
       <Skill/>
