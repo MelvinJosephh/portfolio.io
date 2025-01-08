@@ -1,18 +1,18 @@
 import "../../../Styles/HireTalent/StepTemplate.scss";
 import React from "react";
-import { StyledButton } from "../../Shared/StyledComponents.jsx"; // Keep this import if you still need styled buttons
+import { StyledButton } from "../../Shared/StyledComponents.jsx";
 
 const StepTemplate = ({
   title,
   options,
   selectedOption,
   setSelectedOption,
-  onNext,
+  onNext,  // Handle next step or submit action here
   onBack,
   isFirst = false,
   isFinalStep = false,
   showSkipButton = false,
-  children, // Step content like forms
+  children,
 }) => {
   return (
     <div className="step-template">

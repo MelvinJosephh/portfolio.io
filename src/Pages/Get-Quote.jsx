@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { TextField, Button, MenuItem, Select, InputLabel, InputAdornment, FormControl } from "@mui/material";
+import axios from "axios"; // Import axios for HTTP requests
 import '../Styles/components/Get-Quote.scss';
 
 const GetQuote = () => {
@@ -38,12 +39,19 @@ const GetQuote = () => {
     return true;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
       setErrorMessage("");
-      console.log("Submitted Data:", formData);
-      setIsSubmitted(true);
+      try {
+        // Send form data to the backend
+        const response = await axios.post("http://localhost:5000/api/quote", formData);
+        console.log(response.data);
+        setIsSubmitted(true); // Set form as submitted on success
+      } catch (error) {
+        console.error("There was an error submitting the form", error);
+        setErrorMessage("There was an error submitting the form. Please try again later.");
+      }
     }
   };
 

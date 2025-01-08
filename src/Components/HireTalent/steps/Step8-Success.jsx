@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useStepContext } from "../../../Context/StepContext.js";
 import StepTemplate from "../shared/StepTemplate";
-import {  StyledTextField } from "../../Shared/StyledComponents.jsx";
+import { StyledTextField } from "../../Shared/StyledComponents.jsx";
 import "../../../Styles/HireTalent/Step8Success.scss";
+import axios from "axios"; // Import axios
 
 const Step8Success = ({ onBack, onSubmit }) => {
   const { formData } = useStepContext();
@@ -23,15 +24,34 @@ const Step8Success = ({ onBack, onSubmit }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
+    // Validate that all fields are filled
     if (
       contactInfo.email &&
       contactInfo.companyName &&
       contactInfo.contactName &&
       contactInfo.phoneNumber
     ) {
-      onSubmit(contactInfo);
+      // Combine contactInfo with the form data from the context
+      const hiringData = { ...formData, contactInfo };
+
+      try {
+        // Make the POST request using axios
+        const response = await axios.post("http://localhost:5000/api/submit-hiring-form", hiringData, {
+          headers: {
+            "Content-Type": "application/json", // Ensure the backend knows we're sending JSON
+          },
+        });
+
+        if (response.status === 200 || response.status === 201) {
+          // Handle success (e.g., show success message or go to the next step)
+          alert("Form submitted successfully!");
+          onSubmit(contactInfo); // Optionally call onSubmit to handle the contact info in the parent
+        }
+      } catch (error) {
+        console.error("Error submitting data:", error);
+        alert("An error occurred while submitting the form.");
+      }
     } else {
       alert("Please fill in all fields.");
     }
@@ -42,6 +62,7 @@ const Step8Success = ({ onBack, onSubmit }) => {
       title="Success! Let's connect you with talent."
       options={[]}
       onBack={onBack}
+      onNext={handleSubmit}  // Pass the handleSubmit function here
       isFinalStep={true}
     >
       <div className="form-container">
@@ -49,7 +70,7 @@ const Step8Success = ({ onBack, onSubmit }) => {
           Please provide your contact details below to connect with the best talent.
           {startDate && <p>Start date: {startDate}</p>}
         </p>
-        <form onSubmit={handleSubmit}>
+        <form>
           <div className="form-field">
             <StyledTextField
               label="Email Address"
