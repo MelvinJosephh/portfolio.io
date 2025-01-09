@@ -39,13 +39,13 @@
 
 /* Global Styling */
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Inter", Helvetica, Arial, sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
 }
 
 h1, h2, h3, p, li, a, button, label {
-  font-family: 'Bree Serif', serif;
+  font-family: inherit;
 }
 
 /* Responsive Styles */
