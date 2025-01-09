@@ -7,6 +7,7 @@ export const StepProvider = ({ children }) => {
     hire: "",
     companySize: "",
     projectType: "",
+    projectLength: "",
     commitment: "",
     skills: [],
     startDate: "",

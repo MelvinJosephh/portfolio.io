@@ -3,9 +3,9 @@ import { useStepContext } from "../../../Context/StepContext.js";
 import StepTemplate from "../shared/StepTemplate";
 import { StyledTextField } from "../../Shared/StyledComponents.jsx";
 import "../../../Styles/HireTalent/Step8Success.scss";
-import axios from "axios"; // Import axios
+import axios from "axios";
 
-const Step8Success = ({ onBack, onSubmit }) => {
+const Step8Success = ({ onBack }) => {
   const { formData } = useStepContext();
   const { startDate } = formData;
 
@@ -25,28 +25,23 @@ const Step8Success = ({ onBack, onSubmit }) => {
   };
 
   const handleSubmit = async () => {
-    // Validate that all fields are filled
     if (
       contactInfo.email &&
       contactInfo.companyName &&
       contactInfo.contactName &&
       contactInfo.phoneNumber
     ) {
-      // Combine contactInfo with the form data from the context
       const hiringData = { ...formData, contactInfo };
 
       try {
-        // Make the POST request using axios
         const response = await axios.post("http://localhost:5000/api/submit-hiring-form", hiringData, {
           headers: {
-            "Content-Type": "application/json", // Ensure the backend knows we're sending JSON
+            "Content-Type": "application/json",
           },
         });
 
         if (response.status === 200 || response.status === 201) {
-          // Handle success (e.g., show success message or go to the next step)
           alert("Form submitted successfully!");
-          onSubmit(contactInfo); // Optionally call onSubmit to handle the contact info in the parent
         }
       } catch (error) {
         console.error("Error submitting data:", error);
@@ -62,7 +57,7 @@ const Step8Success = ({ onBack, onSubmit }) => {
       title="Success! Let's connect you with talent."
       options={[]}
       onBack={onBack}
-      onNext={handleSubmit}  // Pass the handleSubmit function here
+      onNext={handleSubmit} // Link handleSubmit here
       isFinalStep={true}
     >
       <div className="form-container">
