@@ -18,7 +18,7 @@ exports.submitForm = async (req, res) => {
 
     // Setup email transport
     const transporter = nodemailer.createTransport({
-      host: "mail.kamsware.com",
+      host: "mail.aberrange.com",
       port: 465,
       secure: true,
       auth: {
