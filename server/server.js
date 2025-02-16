@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 // Configure CORS
 const corsOptions = {
-    origin: ["https://aberrange-server.netlify.app", "http://localhost:3000", "http://localhost:3001"],
+    origin: ["https://aberrange-server.netlify.app","http://localhost:5000", "http://localhost:3000", "http://localhost:3001"],
     methods: "GET,POST,PUT,DELETE", 
     allowedHeaders: "Content-Type,Authorization", 
   };
@@ -37,5 +37,5 @@ app.use("/api/auth", authRoutes);
 app.use("/api", quoteRoutes);
 app.use("/api", hiringRoutes);
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
