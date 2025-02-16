@@ -11,7 +11,7 @@ const upload = multer({ storage });
 
 // Configure CORS for this router
 const corsOptions = {
-    origin: ["https://aberrange-server.netlify.app", "http://localhost:5000", "http://localhost:3000", "http://localhost:3001"],
+    origin: ["https://aberrange-server.netlify.app", "http://localhost:3000", "http://localhost:3001"],
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: "Content-Type,Authorization",
 };
